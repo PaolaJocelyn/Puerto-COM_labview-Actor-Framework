@@ -16,6 +16,7 @@
 		<Item Name="Implementation" Type="Folder" URL="../Implementation">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
+		<Item Name="Launcher.vi" Type="VI" URL="../UI Actor/Launcher.vi"/>
 		<Item Name="UI Actor.lvlib" Type="Library" URL="../UI Actor/UI Actor.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
