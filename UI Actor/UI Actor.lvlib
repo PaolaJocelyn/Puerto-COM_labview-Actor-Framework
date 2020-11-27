@@ -4,7 +4,12 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">536903680</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Item Name="Messages for this Actor" Type="Folder">
+		<Item Name="Get Pin Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Get Pin Status_UI Actor Msg/Get Pin Status_UI Actor Msg.lvclass"/>
+		<Item Name="Get Port Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Get Port Status_UI Actor Msg/Get Port Status_UI Actor Msg.lvclass"/>
+		<Item Name="Read ADC_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Read ADC_UI Actor Msg/Read ADC_UI Actor Msg.lvclass"/>
 		<Item Name="Set Com Port Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Com Port Msg/Set Com Port Msg.lvclass"/>
+		<Item Name="Set Pin Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Pin Status_UI Actor Msg/Set Pin Status_UI Actor Msg.lvclass"/>
+		<Item Name="Set Port Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Port Status_UI Actor Msg/Set Port Status_UI Actor Msg.lvclass"/>
 	</Item>
 	<Item Name="UI Actor.lvclass" Type="LVClass" URL="../UI Actor.lvclass"/>
 </Library>
