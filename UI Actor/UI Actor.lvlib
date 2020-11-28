@@ -7,9 +7,14 @@
 		<Item Name="Get Pin Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Get Pin Status_UI Actor Msg/Get Pin Status_UI Actor Msg.lvclass"/>
 		<Item Name="Get Port Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Get Port Status_UI Actor Msg/Get Port Status_UI Actor Msg.lvclass"/>
 		<Item Name="Read ADC_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Read ADC_UI Actor Msg/Read ADC_UI Actor Msg.lvclass"/>
+		<Item Name="Set byte 0 Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set byte 0 Msg/Set byte 0 Msg.lvclass"/>
+		<Item Name="Set byte 1 Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set byte 1 Msg/Set byte 1 Msg.lvclass"/>
+		<Item Name="Set CH Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set CH Msg/Set CH Msg.lvclass"/>
 		<Item Name="Set Com Port Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Com Port Msg/Set Com Port Msg.lvclass"/>
+		<Item Name="Set Pin Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Pin Msg/Set Pin Msg.lvclass"/>
 		<Item Name="Set Pin Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Pin Status_UI Actor Msg/Set Pin Status_UI Actor Msg.lvclass"/>
 		<Item Name="Set Port Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Port Status_UI Actor Msg/Set Port Status_UI Actor Msg.lvclass"/>
+		<Item Name="Set valor PIN Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set valor PIN Msg/Set valor PIN Msg.lvclass"/>
 	</Item>
 	<Item Name="UI Actor.lvclass" Type="LVClass" URL="../UI Actor.lvclass"/>
 </Library>
