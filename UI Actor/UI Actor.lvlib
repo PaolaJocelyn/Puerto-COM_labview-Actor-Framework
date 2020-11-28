@@ -4,9 +4,12 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">536903680</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Item Name="Messages for this Actor" Type="Folder">
+		<Item Name="Close Visa Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Close Visa Msg/Close Visa Msg.lvclass"/>
 		<Item Name="Get Pin Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Get Pin Status_UI Actor Msg/Get Pin Status_UI Actor Msg.lvclass"/>
 		<Item Name="Get Port Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Get Port Status_UI Actor Msg/Get Port Status_UI Actor Msg.lvclass"/>
+		<Item Name="Mensaje de desconexion Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Mensaje de desconexion Msg/Mensaje de desconexion Msg.lvclass"/>
 		<Item Name="Read ADC_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Read ADC_UI Actor Msg/Read ADC_UI Actor Msg.lvclass"/>
+		<Item Name="Read Visa Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Read Visa Msg/Read Visa Msg.lvclass"/>
 		<Item Name="Set byte 0 Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set byte 0 Msg/Set byte 0 Msg.lvclass"/>
 		<Item Name="Set byte 1 Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set byte 1 Msg/Set byte 1 Msg.lvclass"/>
 		<Item Name="Set CH Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set CH Msg/Set CH Msg.lvclass"/>
