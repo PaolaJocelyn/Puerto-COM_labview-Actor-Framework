@@ -12,6 +12,7 @@
 		<Item Name="Set Pin Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Pin Msg/Set Pin Msg.lvclass"/>
 		<Item Name="Set Pin Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Pin Status_UI Actor Msg/Set Pin Status_UI Actor Msg.lvclass"/>
 		<Item Name="Set Port Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set Port Status_UI Actor Msg/Set Port Status_UI Actor Msg.lvclass"/>
+		<Item Name="Set valor PIN Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Set valor PIN Msg/Set valor PIN Msg.lvclass"/>
 	</Item>
 	<Item Name="UI Actor.lvclass" Type="LVClass" URL="../UI Actor.lvclass"/>
 </Library>
