@@ -24,6 +24,15 @@
 	<Item Name="Cypress.ctl" Type="Class Private Data" URL="Cypress.ctl">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Desplegar arreglos boleanos.vi" Type="VI" URL="../Desplegar arreglos boleanos.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;&gt;!!!!$1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!%%!Q`````Q:1&gt;76S&gt;']!!!R!)1&gt;#&lt;W^M:7&amp;O!"J!1!!"`````Q!&amp;$'^V&gt;("V&gt;#"B=H*B?1!!*E"Q!"Y!!"%01XFQ=G6T=SZM&gt;G.M98.T!!N$?8"S:8.T)'^V&gt;!!%!!!!)%"1!!-!!!!"!!)4:8*S&lt;X)A;7YA+'ZP)'6S=G^S+1!?1$$`````&amp;56Y='6D&gt;'6E)&amp;*F=X"P&lt;H.F)'^V&gt;!!G1(!!(A!!%1^$?8"S:8.T,GRW9WRB=X-!#E.Z=(*F=X-A;7Y!!&amp;1!]!!-!!-!"!!'!!=!#!!)!!A!#!!*!!A!#A!,!A!!?!!!$1A!!!E!!!!*!!!!D1M!!!!!!!!!!!!!!!!!!!!!!!!)!!!!!!!!!AA!!!#1!!!!!!%!$!!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1107821058</Property>
+	</Item>
 	<Item Name="Get_Pin_Status.vi" Type="VI" URL="../Get_Pin_Status.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;.!!!!$1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!'E!Q`````R&amp;&amp;?("F9X2F:#"3:8.Q&lt;WZT:1!91$$`````$U.P&lt;7VB&lt;G1A&gt;']A5W6O:!!G1(!!(A!!%1^$?8"S:8.T,GRW9WRB=X-!#U.Z=(*F=X-A&lt;X6U!!1!!!!A1&amp;!!!Q!!!!%!!B.F=H*P=C"J&lt;C!I&lt;G]A:8*S&lt;X)J!!F!!Q!$5%F/!!F!!Q!#1UA!!#:!=!!?!!!2$U.Z=(*F=X-O&lt;(:D&lt;'&amp;T=Q!+1XFQ=G6T=S"J&lt;A!!6!$Q!!Q!!Q!%!!5!"A!(!!=!"Q!(!!A!#1!+!!M#!!"Y!!!.#!!!#1!!!!E!!!#.#Q!!!!!!!!!!!!!!!!!!!!!!!!A!!!!)!!!!#!!!!*!!!!!!!1!-!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
