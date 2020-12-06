@@ -4,6 +4,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">536903680</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Item Name="Messages for this Actor" Type="Folder">
+		<Item Name="Buttons Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Buttons Msg/Buttons Msg.lvclass"/>
 		<Item Name="Close Visa Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Close Visa Msg/Close Visa Msg.lvclass"/>
 		<Item Name="Get Pin Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Get Pin Status_UI Actor Msg/Get Pin Status_UI Actor Msg.lvclass"/>
 		<Item Name="Get Port Status_UI Actor Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Get Port Status_UI Actor Msg/Get Port Status_UI Actor Msg.lvclass"/>
