@@ -77,4 +77,13 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1107821056</Property>
 	</Item>
+	<Item Name="Visa_Write read_UI SETPIN.vi" Type="VI" URL="../Visa_Write read_UI SETPIN.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!)(!!!!%!!I1(!!(A!!%B"4;7VV&lt;'&amp;E&lt;SZM&gt;G.M98.T!!!,5WFN&gt;7RB:']A;7Y!(A!X`````Q!%)!#!!!!!!!%!"!!!!!%!!!!!!!!!.%"Q!!Y&amp;37ZT&gt;()!!1!")!#!!!!!!!%!"!!!!!%!!!!!!!!/6EF413"3:7:O&gt;7UA;7Y!!!1!!!!91$$`````$U.P&lt;7VB&lt;G1A&gt;']A5W6O:!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!A1&amp;!!!Q!&amp;!!9!"R.F=H*P=C"J&lt;C!I&lt;G]A:8*S&lt;X)J!#J!=!!?!!!3%&amp;.J&lt;86M972P,GRW9WRB=X-!!!R4;7VV&lt;'&amp;E&lt;S"P&gt;81!!$2!=!!/"5FO=X2S!!%!!3!!A!!!!!!"!!1!!!!"!!!!!!!!$V:*5U%A5G6G&lt;H6N)'^V&gt;!!11$$`````"F"V:8*U&lt;Q!!%E!Q`````QF797RP=C"1;7Y!#%!B!V"J&lt;A!71&amp;!!!Q!&amp;!!9!"QFF=H*P=C"P&gt;81!B!$Q!"1!!!!#!!-!"!!$!!A!!Q!$!!-!!Q!$!!-!!Q!$!!E!#A!,!!Q!$1!/!A!"%!!!E!!!!!A!!!!!!!!##!!!!!!!!!!)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#.!!!!$1%!!!E!!!!*!!!!#1!!!!U&amp;!!!!!1!0!!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1107821056</Property>
+	</Item>
 </LVClass>
