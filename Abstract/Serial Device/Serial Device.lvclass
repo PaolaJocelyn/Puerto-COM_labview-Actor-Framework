@@ -97,6 +97,15 @@
 		</Item>
 	</Item>
 	<Item Name="VISA" Type="Folder">
+		<Item Name="Visa_Write read_UI GETPIN.vi" Type="VI" URL="../Visa_Write read_UI GETPIN.vi">
+			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!)T!!!!%Q!S1(!!(A!!&amp;R64:8*J97QA2'6W;7.F,GRW9WRB=X-!%&amp;.F=GFB&lt;#"%:8:J9W5A;7Y!!"Y!.`````]!"#!!A!!!!!!"!!1!!!!"!!!!!!!!!$B!=!!/"5FO=X2S!!%!!3!!A!!!!!!"!!1!!!!"!!!!!!!!%F:*5U%A=G6T&lt;X6S9W5A&lt;G&amp;N:1!!'%!Q`````Q^$&lt;WVN97ZE)(2P)&amp;.F&lt;G1!'E!Q`````R&amp;&amp;?("F9X2F:#"3:8.Q&lt;WZT:1!-1#%(1G^P&lt;'6B&lt;A!51%!!!@````]!"1&gt;#&gt;82U&lt;WZT!!R!)1:T&gt;'&amp;U&gt;8-!!!N!!Q!%9W^E:1!!%%!Q`````Q:T&lt;X6S9W5!!#"!5!!$!!=!#!!*%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!"!!!!!Z!)1F797RP=C"Q;7Y!-E"Q!"Y!!"=65W6S;7&amp;M)%2F&gt;GFD:3ZM&gt;G.M98.T!"&amp;4:8*J97QA2'6W;7.F)'^V&gt;!!31$$`````#&amp;*F=X"P&lt;H.F!!!/1$$`````"&amp;"P=H1!!!R!-0````]$5%F/!":!5!!$!!=!#!!*#76S=G^S)'^V&gt;!#%!0!!&amp;!!!!!)!!Q!%!!9!#A!,!!M!#Q!,!!M!#Q!,!!Q!$1!#!!Y!$Q!1!"%#!!%1!!#1!!!!#A!!!AA!!!))!!!##!!!!!A!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#1!!!)U!!!!.!1!!#1!!!!E!!!!*!!!!$15!!!!"!")!!!!!</Property>
+			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+			<Property Name="NI.ClassItem.Flags" Type="Int">1073741824</Property>
+			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+			<Property Name="NI.ClassItem.State" Type="Int">1107821056</Property>
+		</Item>
 		<Item Name="Visa_Write read_UI SETPIN.vi" Type="VI" URL="../Visa_Write read_UI SETPIN.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!):!!!!%!!S1(!!(A!!&amp;R64:8*J97QA2'6W;7.F,GRW9WRB=X-!%&amp;.F=GFB&lt;#"%:8:J9W5A;7Y!!"Y!.`````]!"#!!A!!!!!!"!!1!!!!"!!!!!!!!!$2!=!!/"5FO=X2S!!%!!3!!A!!!!!!"!!1!!!!"!!!!!!!!$F:*5U%A5G6G&lt;H6N)'FO!!!%!!!!'%!Q`````Q^$&lt;WVN97ZE)(2P)&amp;.F&lt;G1!$%!B"H.U982V=Q!!#U!$!!2D&lt;W2F!!!11$$`````"H.P&gt;8*D:1!!)%"1!!-!"1!'!!=4:8*S&lt;X)A;7YA+'ZP)'6S=G^S+1!S1(!!(A!!&amp;R64:8*J97QA2'6W;7.F,GRW9WRB=X-!%6.F=GFB&lt;#"%:8:J9W5A&lt;X6U!$2!=!!/"5FO=X2S!!%!!3!!A!!!!!!"!!1!!!!"!!!!!!!!$V:*5U%A5G6G&lt;H6N)'^V&gt;!!11$$`````"F"V:8*U&lt;Q!!%E!Q`````QF797RP=C"1;7Y!#%!B!V"J&lt;A!71&amp;!!!Q!&amp;!!9!"QFF=H*P=C"P&gt;81!B!$Q!"1!!!!#!!-!"!!$!!A!!Q!$!!-!!Q!$!!-!!Q!$!!E!#A!,!!Q!$1!/!A!"%!!!E!!!!!I!!!!!!!!##!!!!!!!!!!)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#.!!!!$1%!!!E!!!!*!!!!#1!!!!U&amp;!!!!!1!0!!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
