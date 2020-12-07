@@ -98,4 +98,13 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1082130944</Property>
 	</Item>
+	<Item Name="Visa_Write read_UI GETPORT.vi" Type="VI" URL="../Visa_Write read_UI GETPORT.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!*"!!!!%A!G1(!!(A!!%1^$?8"S:8.T,GRW9WRB=X-!#E.Z=(*F=X-A;7Y!!"Y!.`````]!"#!!A!!!!!!"!!1!!!!"!!!!!!!!!$B!=!!/"5FO=X2S!!%!!3!!A!!!!!!"!!1!!!!"!!!!!!!!%F:*5U%A=G6T&lt;X6S9W5A&lt;G&amp;N:1!!'%!Q`````Q^$&lt;WVN97ZE)(2P)&amp;.F&lt;G1!'E!Q`````R&amp;&amp;?("F9X2F:#"3:8.Q&lt;WZT:1!-1#%(1G^P&lt;'6B&lt;A!51%!!!@````]!"1&gt;#&gt;82U&lt;WZT!!R!)1:T&gt;'&amp;U&gt;8-!!!N!!Q!%9W^E:1!!%%!Q`````Q:T&lt;X6S9W5!!#"!5!!$!!=!#!!*%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!"!!!!#:!=!!?!!!2$U.Z=(*F=X-O&lt;(:D&lt;'&amp;T=Q!,1XFQ=G6T=S"P&gt;81!.%"Q!!Y&amp;37ZT&gt;()!!1!")!#!!!!!!!%!"!!!!!%!!!!!!!!06EF413"3:7:O&gt;7UA&lt;X6U!"Z!-0````]628BQ:7.U:71A5G6T='^O=W5A&lt;X6U!!Z!-0````]%5'^S&gt;!!!&amp;E"1!!-!"Q!)!!E*:8*S&lt;X)A&lt;X6U!)1!]!!5!!!!!A!$!!1!"A!+!!M!#Q!,!!M!#Q!,!!M!#Q!-!!U!$A!0!!M!%!-!!2!!!*!!!!!)!!!!#!!!!AA!!!))!!!!#A!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!D1!!!!U"!!!*!!!!#1!!!!!!!!!."1!!!!%!%1!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">1073741824</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1107821072</Property>
+	</Item>
 </LVClass>
