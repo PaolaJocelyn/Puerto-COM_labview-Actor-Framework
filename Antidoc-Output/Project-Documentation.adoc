@@ -1,0 +1,3915 @@
+= Com Ports Actor Framework
+Paola Jocelyn Salazar Hernández <salazarpaola@outlook.com>
+:doctype: book
+:toc: 
+:imagesdir: Images
+:sectnums: 
+:toclevels: 3
+:chapter-label: Section
+
+== Project description
+
+No description found (add content in project description)
+
+== Code component descriptions
+
+=== DQMH(R) modules
+
+This section describes DQMH(R) module responsibilities and relationships.
+
+==== Preamble
+
+A DQMH module is the main component of an architecture based on DQMH(R) framework. A DQMH module is used to implement a section of the application that has one responsibility.
+
+DQMH(R) framework defines two different type of DQMH module.  
+
+====
+*Singleton:*
+
+A Singleton DQMH module can have only one instance running at any given time.
+====
+
+====
+*Cloneable:*
+
+A Cloneable DQMH module can have one or multiple instances running in parallel.
+====
+
+DQMH(R) framework defines two different ways to carry data throughout the application and with both other DQMH modules and non-DQMH based code.
+
+====
+*Request events:*
+
+A request is a code that fires an event requesting the DQMH module to do something. Multiple locations in the code can send events to the DQMH module.
+
+Request events are many-to-one.
+
+Requests are usually named using imperative tense.
+====
+
+====
+*Broadcast events:*
+
+A broadcast is a code that fires an event broadcasting that the DQMH module did something. Multiple Event Structures can register to handle the Broadcast Events.
+
+Broadcast Events are one-to-many.
+
+Broadcasts are usually named using past tense or passive voice.
+====
+
+NOTE: Refer to the DQMH(R) framework official http://delacor.com/documentation/dqmh-html/[documentation] to find more details on how the framework works
+
+
+The following section gives you details on the project architecture relying on this framework.
+It gives you an overview of the modules' interaction and detailed information on each module.
+
+Graphs used in this section have the following legend:
+
+*Components:*
+
+
+[graphviz, format="png", align="center"]
+....
+digraph G876897 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+"DQMH module / Lvlib"[color=black shape=component]
+"Vi"[color=skyblue shape=note]
+}
+....
+
+*Events:*
+
+[graphviz, format="png", align="center"]
+....
+digraph G737330 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+" "[color=white shape=box]
+"  "[color=white shape=box]
+"   "[color=white shape=box]
+"    "[color=white shape=box]
+" " -> "  " [label="Request to a DQMH module" dir=both color=forestgreen  arrowhead=normal arrowtail=none style=filled penwidth=1];
+"   " -> "    " [label="Broadcast from a DQMH module" dir=both color=goldenrod  arrowhead=normal arrowtail=none style=dashed penwidth=1];
+}
+....
+
+*Start and Stop module callers:*
+
+[graphviz, format="png", align="center"]
+....
+digraph G752645 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+"Start Module
+caller"[color=black shape=component]
+"Start Module"[color=yellowgreen shape=note]
+"Start Module" -> "Start Module
+caller" [label="Called by" dir=both color=yellowgreen  arrowhead=odot arrowtail=inv style=filled penwidth=1];
+}
+....
+
+[graphviz, format="png", align="center"]
+....
+digraph G116041 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+"Stop Module
+caller"[color=black shape=component]
+"Stop Module"[color=tomato shape=note]
+"Stop Module" -> "Stop Module
+caller" [label="Called by" dir=both color=tomato  arrowhead=odot arrowtail=inv style=dotted penwidth=1];
+}
+....
+
+
+==== Modules overview
+
+This project contains the following modules.
+
+.Modules list
+|===
+|Singleton|Cloneable
+
+|===
+
+This graph represents the links between all DQMH modules.
+
+[graphviz, format="png", align="center"]
+....
+digraph G55534 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+}
+....
+
+
+=== Libraries
+
+This section describes the libraries contained in the project.
+
+==== UI Actor.lvlib
+
+No description found (add content in lvlib description)
+
+
+==== Actor Framework.lvlib
+
+No description found (add content in lvlib description)
+
+
+==== NI_SystemLogging.lvlib
+
+No description found (add content in lvlib description)
+
+
+==== VITesterUtilities.lvlib
+
+No description found (add content in lvlib description)
+
+
+==== AF Debug.lvlib
+
+No description found (add content in lvlib description)
+
+
+=== Classes
+
+This section describes the classes contained in the project.
+
+==== Test simulado.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Serial Device.lvclass
+
+Esta clase es el padre Serial Device. Colocando esta clase permite hacer HAL
+
+
+==== Cypress.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== NXP.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Simulado.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Buttons Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Close Visa Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Get Pin Status_UI Actor Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Get Port Status_UI Actor Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Mensaje de desconexion Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Read ADC_UI Actor Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Read Visa Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Set byte 0 Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Set byte 1 Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Set CH Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Set Com Port Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Set Pin Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Set Pin Status_UI Actor Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Set Port Status_UI Actor Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Set valor PIN Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== UI Actor.lvclass
+
+Actor para desplegar los Microcontroladores
+
+
+==== Message.lvclass
+
+Message: <Any Actor> to <Any Actor>
+
+This is the ancestor of all messages. Messages are sent via directed queue from the caller to the actor or via a separate queue from the actor to the caller. In general, messages should be events along the lines of "you need to know this." They should not, generally, be synchronous requests for information of any kind. For further discussion of this, see comments on "Reply Message.lvclass".
+
+
+==== Stop Msg.lvclass
+
+Message: Actor to Actor
+
+When the Stop message is sent, it tells the actor to shutdown. The actor will stop handling further messages. The actor will send a Last Ack.lvclass message back on the queue to its caller. After sending the Stop message, the caller is free to exit and not wait for the Last Ack. 
+
+
+
+==== Last Ack.lvclass
+
+Message: Actor to Actor
+
+Last Ack stands for "Last Acknowledgement". It is a common term in network communication protocols signifying the very very last message when breaking a connection. In this case, a Last Ack message is sent from the actor to the caller whenever the actor shuts down. This shutdown may be because the actor has finished the work it was created to do, or because it generated an error, or because it received a Stop message. If it was because of an error, the error is recoreded in the Last Ack. The final state of the actor as it exited is also recorded in the Last Ack. The caller may legitimately already have quit when the Last Ack is sent, so any error generated while sending the Last Ack is ignored.
+
+
+==== Launch Nested Actor Msg.lvclass
+
+Message: Actor to Actor
+
+Launch Nested Actor Msg is a private message of the Actor Framework. Unlike most message classes, it does not have a member VI for sending the message. The send for this message is instead a member of Actor.lvclass. For further information, please read the help for <b>Actor.lvclass:Send Launch Nested Actor Msg.vi</b>.
+
+
+==== Actor.lvclass
+
+This class serves as the base class for an independently running actor. The caller VI launches the actor using Launch Actor.vi and thereafter communicates with the actor using a pair of queues -- one for messages to the actor, the other for messages from the actor. These messages are all derived from the Message.lvclass.  Actor.lvclass provides mechanism for launching and establishing communications. In general, a programmer will create new classes that inherit from Actor.lvclass that are dedicated to specific purposes. 
+
+
+==== Message Priority Queue.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Message Enqueuer.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Message Dequeuer.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Message Queue.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== TestCase.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== TestLoader.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== TestResult.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== TestSuite.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Protected Actor Handle.lvclass
+
+An object of this class wraps access to an actor in order to limit a debugger's ability to interfere with the operation of the actors and to protect the debugger from actors stopping unexpectedly.
+
+
+==== Ping Msg.lvclass
+
+This message can be sent to any actor. It is a synchronous message: the Send method will not return until the message is received by the actor. When the message is received, the time between send and receive is computed using the high-resolution timer.
+
+
+==== Register Actor Msg.lvclass
+
+This message is sent to an actor as it is launching, before Pre-Launch Init even has a chance to execute. It will cause the Actor Core to register its clone number with the debugging tools, which will allow the debugger to perform operations such as opening the actor's block diagram.
+
+
+== VI descriptions
+
+=== DQMH(R) modules
+
+This section describes DQMH(R) modules events.
+
+=== Libraries
+
+This section describes libraries public VIs.
+
+==== UI Actor.lvlib
+
+===== UI Actor.lvlib:Buttons Msg.lvclass:Send Buttons.vi
+
+:imgpath: UI Actor.lvlib_Buttons Msg.lvclass_Send Buttons.vi.png
+image::{imgpath}[UI Actor.lvlib:Buttons Msg.lvclass:Send Buttons.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Buttons Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Buttons Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Buttons Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Close Visa Msg.lvclass:Send Close Visa.vi
+
+:imgpath: UI Actor.lvlib_Close Visa Msg.lvclass_Send Close Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:Close Visa Msg.lvclass:Send Close Visa.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Close Visa Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Close Visa Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Close Visa Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Get Pin Status_UI Actor Msg.lvclass:Send Get Pin Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Get Pin Status_UI Actor Msg.lvclass_Send Get Pin Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Get Pin Status_UI Actor Msg.lvclass:Send Get Pin Status_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Get Pin Status_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Get Pin Status_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Get Pin Status_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Get Port Status_UI Actor Msg.lvclass:Send Get Port Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Get Port Status_UI Actor Msg.lvclass_Send Get Port Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Get Port Status_UI Actor Msg.lvclass:Send Get Port Status_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Get Port Status_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Get Port Status_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Get Port Status_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Mensaje de desconexion Msg.lvclass:Send Mensaje de desconexion.vi
+
+:imgpath: UI Actor.lvlib_Mensaje de desconexion Msg.lvclass_Send Mensaje de desconexion.vi.png
+image::{imgpath}[UI Actor.lvlib:Mensaje de desconexion Msg.lvclass:Send Mensaje de desconexion.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Mensaje de desconexion Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Mensaje de desconexion Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Mensaje de desconexion Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Read ADC_UI Actor Msg.lvclass:Send Read ADC_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Read ADC_UI Actor Msg.lvclass_Send Read ADC_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Read ADC_UI Actor Msg.lvclass:Send Read ADC_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Read ADC_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Read ADC_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Read ADC_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Read Visa Msg.lvclass:Send Read Visa.vi
+
+:imgpath: UI Actor.lvlib_Read Visa Msg.lvclass_Send Read Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:Read Visa Msg.lvclass:Send Read Visa.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Read Visa Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Read Visa Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Read Visa Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Set byte 0 Msg.lvclass:Send Set byte 0.vi
+
+:imgpath: UI Actor.lvlib_Set byte 0 Msg.lvclass_Send Set byte 0.vi.png
+image::{imgpath}[UI Actor.lvlib:Set byte 0 Msg.lvclass:Send Set byte 0.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set byte 0 Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set byte 0 Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set byte 0 Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Set byte 1 Msg.lvclass:Send Set byte 1.vi
+
+:imgpath: UI Actor.lvlib_Set byte 1 Msg.lvclass_Send Set byte 1.vi.png
+image::{imgpath}[UI Actor.lvlib:Set byte 1 Msg.lvclass:Send Set byte 1.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set byte 1 Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set byte 1 Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set byte 1 Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Set CH Msg.lvclass:Send Set CH.vi
+
+:imgpath: UI Actor.lvlib_Set CH Msg.lvclass_Send Set CH.vi.png
+image::{imgpath}[UI Actor.lvlib:Set CH Msg.lvclass:Send Set CH.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set CH Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set CH Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set CH Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Set Com Port Msg.lvclass:Send Set Com Port.vi
+
+:imgpath: UI Actor.lvlib_Set Com Port Msg.lvclass_Send Set Com Port.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Com Port Msg.lvclass:Send Set Com Port.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set Com Port Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set Com Port Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Com Port Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Set Pin Msg.lvclass:Send Set Pin.vi
+
+:imgpath: UI Actor.lvlib_Set Pin Msg.lvclass_Send Set Pin.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Pin Msg.lvclass:Send Set Pin.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set Pin Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set Pin Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Pin Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Set Pin Status_UI Actor Msg.lvclass:Send Set Pin Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Set Pin Status_UI Actor Msg.lvclass_Send Set Pin Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Pin Status_UI Actor Msg.lvclass:Send Set Pin Status_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set Pin Status_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set Pin Status_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Pin Status_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Set Port Status_UI Actor Msg.lvclass:Send Set Port Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Set Port Status_UI Actor Msg.lvclass_Send Set Port Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Port Status_UI Actor Msg.lvclass:Send Set Port Status_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set Port Status_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set Port Status_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Port Status_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Set valor PIN Msg.lvclass:Send Set valor PIN.vi
+
+:imgpath: UI Actor.lvlib_Set valor PIN Msg.lvclass_Send Set valor PIN.vi.png
+image::{imgpath}[UI Actor.lvlib:Set valor PIN Msg.lvclass:Send Set valor PIN.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set valor PIN Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set valor PIN Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set valor PIN Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Pin Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Pin Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Pin Status_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de SET PIN  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Get Pin Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Get Pin Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Get Pin Status_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de GET PIN  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Get Port Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Get Port Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Get Port Status_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de GET PORT  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read ADC_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read ADC_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read ADC_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de READ ADC  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Port Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Port Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Port Status_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de SET PORT  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set byte 1.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set byte 1.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set byte 1.vi]
+
+*Description:*
+++++
+Carga el valor de Byte 1 para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set valor PIN.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set valor PIN.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set valor PIN.vi]
+
+*Description:*
+++++
+Carga el valor de PIN  para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Pin.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Pin.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Pin.vi]
+
+*Description:*
+++++
+Carga el valor de Pin para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set CH.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set CH.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set CH.vi]
+
+*Description:*
+++++
+Carga el valor del canal para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Buttons.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Buttons.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Buttons.vi]
+
+*Description:*
+++++
+Carga el valor de los botones  para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set byte 0.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set byte 0.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set byte 0.vi]
+
+*Description:*
+++++
+Carga el valor de Byte 0 para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Com Port.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Com Port.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Com Port.vi]
+
+*Description:*
+++++
+Vi para seleccionar el puerto com
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Mensaje de desconexion.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Mensaje de desconexion.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Mensaje de desconexion.vi]
+
+*Description:*
+++++
+Manda un mensaje de desconexión en caso de oprimir el botón para desconectar el dispositivo
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Close Visa.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Close Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Close Visa.vi]
+
+*Description:*
+++++
+cierra visa
+
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Visa.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Visa.vi]
+
+*Description:*
+++++
+lee visa
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Error conexión.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Error conexión.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Error conexión.vi]
+
+*Description:*
+++++
+Maneja el error de conexión y manda mensaje para que pueda intentarlo de nuevo
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read and Write Visa.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read and Write Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read and Write Visa.vi]
+
+*Description:*
+++++
+Lee y escribe en el puerto serial
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Expected message.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Expected message.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Expected message.vi]
+
+*Description:*
+++++
+Espera el mensaje esperado, es para la visualizacion de los leds
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Enable_Disable.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Enable_Disable.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Enable_Disable.vi]
+
+*Description:*
+++++
+Habilita o desabilta dependiendo la conexión
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Get Pin Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Get Pin Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Get Pin Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de GET PIN
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:ADC Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_ADC Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:ADC Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de ADC
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Pin Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Pin Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Pin Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de SET PIN
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Get Port Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Get Port Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Get Port Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de GET PORT
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Port Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Port Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Port Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de SET PORT
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Serial Device.lvclass.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Serial Device.lvclass.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Serial Device.lvclass.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Serial Device.lvclass.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Serial Device.lvclass.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Serial Device.lvclass.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Serial Devide Brand.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Serial Devide Brand.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Serial Devide Brand.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Serial Devide Brand.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Serial Devide Brand.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Serial Devide Brand.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Actor Framework.lvlib
+
+===== Actor Framework.lvlib:Message.lvclass:Do.vi
+
+:imgpath: Actor Framework.lvlib_Message.lvclass_Do.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message.lvclass:Do.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message.lvclass:Do.vi)
+
+Defines what a message does when it is received by an actor. Generally, a message instructs an actor to invoke one of its methods. By default, this method does nothing. A child class must override it to define behavior.
+++++
+
+===== Actor Framework.lvlib:Stop Msg.lvclass:Send Normal Stop.vi
+
+:imgpath: Actor Framework.lvlib_Stop Msg.lvclass_Send Normal Stop.vi.png
+image::{imgpath}[Actor Framework.lvlib:Stop Msg.lvclass:Send Normal Stop.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Stop Msg.lvclass:Send Normal Stop.vi)
+
+Sends a Stop message to an actor, triggering the actor to run its Stop Core method. This message has normal priority, meaning the actor will process this message after processing high- or normal-priority messages that are in the queue already.
+++++
+
+===== Actor Framework.lvlib:Stop Msg.lvclass:Send Emergency Stop.vi
+
+:imgpath: Actor Framework.lvlib_Stop Msg.lvclass_Send Emergency Stop.vi.png
+image::{imgpath}[Actor Framework.lvlib:Stop Msg.lvclass:Send Emergency Stop.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Stop Msg.lvclass:Send Emergency Stop.vi)
+
+Sends an Emergency Stop message to an actor, triggering the actor to shut down as quickly as possible. This message has critical priority, meaning it will be processed before all messages that are already in the queue.
+++++
+
+===== Actor Framework.lvlib:Stop Msg.lvclass:Send Normal or Emergency Stop.vi
+
+:imgpath: Actor Framework.lvlib_Stop Msg.lvclass_Send Normal or Emergency Stop.vi.png
+image::{imgpath}[Actor Framework.lvlib:Stop Msg.lvclass:Send Normal or Emergency Stop.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Stop Msg.lvclass:Send Normal or Emergency Stop.vi)
+
+Sends a Stop message to an actor. The priority of this message is determined by the value of the <B>final error code</B> input. If this input is 0, this VI sends the message with normal priority; otherwise, it sends the message with critical priority.
+++++
+
+===== Actor Framework.lvlib:Stop Msg.lvclass:Do.vi
+
+:imgpath: Actor Framework.lvlib_Stop Msg.lvclass_Do.vi.png
+image::{imgpath}[Actor Framework.lvlib:Stop Msg.lvclass:Do.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Actor Framework.lvlib:Last Ack.lvclass:Do.vi
+
+:imgpath: Actor Framework.lvlib_Last Ack.lvclass_Do.vi.png
+image::{imgpath}[Actor Framework.lvlib:Last Ack.lvclass:Do.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Actor Framework.lvlib:Last Ack.lvclass:Read Actor.vi
+
+:imgpath: Actor Framework.lvlib_Last Ack.lvclass_Read Actor.vi.png
+image::{imgpath}[Actor Framework.lvlib:Last Ack.lvclass:Read Actor.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Last Ack.lvclass:Read Actor.vi)
+
+Returns the state the actor was in when it shut down.
+++++
+
+===== Actor Framework.lvlib:Last Ack.lvclass:Read Error Report.vi
+
+:imgpath: Actor Framework.lvlib_Last Ack.lvclass_Read Error Report.vi.png
+image::{imgpath}[Actor Framework.lvlib:Last Ack.lvclass:Read Error Report.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Last Ack.lvclass:Read Error Report.vi)
+
+Returns the error, if any, that caused an actor to shut down.
+++++
+
+===== Actor Framework.lvlib:Last Ack.lvclass:Read Caller-To-Actor Enqueuer.vi
+
+:imgpath: Actor Framework.lvlib_Last Ack.lvclass_Read Caller-To-Actor Enqueuer.vi.png
+image::{imgpath}[Actor Framework.lvlib:Last Ack.lvclass:Read Caller-To-Actor Enqueuer.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Last Ack.lvclass:Read Caller-To-Actor Enqueuer.vi)
+
+Returns the reference the caller used to send messages to the actor. Although the reference is invalid, you can use it to identify which actor shut down.
+++++
+
+===== Actor Framework.lvlib:Actor.lvclass:Launch Actor.vi
+
+:imgpath: Actor Framework.lvlib_Actor.lvclass_Launch Actor.vi.png
+image::{imgpath}[Actor Framework.lvlib:Actor.lvclass:Launch Actor.vi]
+
+*Description:*
+++++
+LabVIEW no longer supports this VI. Use the Actor:Launch Root Actor VI or Actor:Launch Nested Actor VI instead.
+Launches a top-level VI that handles messages for an actor and starts this actor's tasks. This VI returns a reference to the queue you use to send messages to the actor.
+
+This VI requires the <B>Actor-to-Caller Enqueuer</B> input, which is the reference that allows the launched actor to communicate with the caller. If you are launching the top-level actor, use the Read Enqueuer method to obtain this reference. If you are launching a nested actor, use the Read Self Enqueuer method instead.
+++++
+
+===== Actor Framework.lvlib:Actor.lvclass:Launch Root Actor.vi
+
+:imgpath: Actor Framework.lvlib_Actor.lvclass_Launch Root Actor.vi.png
+image::{imgpath}[Actor Framework.lvlib:Actor.lvclass:Launch Root Actor.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Actor.lvclass:Launch Root Actor.vi)
+
+Launches an asynchronously running VI that performs tasks and handles messages for the <B>Actor</B>. This VI returns a reference to an enqueuer that you can use to send messages to the newly launched actor.
+
+The Launch Root Actor VI launches the <B>Actor</B> without a caller. Use this VI to launch the root actor of the actor tree. Use the Launch Nested Actor VI to launch all other actors.
+++++
+
+===== Actor Framework.lvlib:Message Enqueuer.lvclass:Enqueue.vi
+
+:imgpath: Actor Framework.lvlib_Message Enqueuer.lvclass_Enqueue.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Enqueuer.lvclass:Enqueue.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Enqueuer.lvclass:Enqueue.vi)
+
+Sends a message.
+++++
+
+===== Actor Framework.lvlib:Message Enqueuer.lvclass:Equals Not A Refnum.vi
+
+:imgpath: Actor Framework.lvlib_Message Enqueuer.lvclass_Equals Not A Refnum.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Enqueuer.lvclass:Equals Not A Refnum.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Enqueuer.lvclass:Equals Not A Refnum.vi)
+
+Checks whether a message enqueuer reference is equal to Not a Refnum. Unlike the Not a Number/Path/Refnum? function, this function does not check whether a non-zero reference still is valid. Refer to the detailed help for more information.
+++++
+
+===== Actor Framework.lvlib:Message Dequeuer.lvclass:Dequeue.vi
+
+:imgpath: Actor Framework.lvlib_Message Dequeuer.lvclass_Dequeue.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Dequeuer.lvclass:Dequeue.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Dequeuer.lvclass:Dequeue.vi)
+
+Reads a message that a top-level actor sent to its caller. Use this VI to interact with non-actor code, not in a VI that belongs to an actor.
+++++
+
+===== Actor Framework.lvlib:Message Dequeuer.lvclass:Equals Not A Refnum.vi
+
+:imgpath: Actor Framework.lvlib_Message Dequeuer.lvclass_Equals Not A Refnum.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Dequeuer.lvclass:Equals Not A Refnum.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Dequeuer.lvclass:Equals Not A Refnum.vi)
+
+Checks whether a message dequeuer reference is equal to Not a Refnum. Unlike the Not a Number/Path/Refnum? function, this function does not check whether a non-zero reference still is valid. Refer to the detailed help for more information.
+++++
+
+===== Actor Framework.lvlib:Message Queue.lvclass:Obtain Message Queue.vi
+
+:imgpath: Actor Framework.lvlib_Message Queue.lvclass_Obtain Message Queue.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Queue.lvclass:Obtain Message Queue.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Queue.lvclass:Obtain Message Queue.vi)
+
+Obtains the reference to the message queue that the caller uses to communicate with the top-level actor.
+++++
+
+===== Actor Framework.lvlib:Message Queue.lvclass:Read Dequeuer.vi
+
+:imgpath: Actor Framework.lvlib_Message Queue.lvclass_Read Dequeuer.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Queue.lvclass:Read Dequeuer.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Queue.lvclass:Read Dequeuer.vi)
+
+Extracts the reference needed to read messages from the top-level actor.
+
+Use the Obtain Message Queue method to obtain the <B>Message Queue</B> input.
+++++
+
+===== Actor Framework.lvlib:Message Queue.lvclass:Read Enqueuer.vi
+
+:imgpath: Actor Framework.lvlib_Message Queue.lvclass_Read Enqueuer.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Queue.lvclass:Read Enqueuer.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Queue.lvclass:Read Enqueuer.vi)
+
+Extracts the reference needed to send messages to the top-level actor.
+
+Use the Obtain Message Queue method to obtain the <B>Message Queue</B> input.
+++++
+
+===== Actor Framework.lvlib:Message Queue.lvclass:Release Message Queue.vi
+
+:imgpath: Actor Framework.lvlib_Message Queue.lvclass_Release Message Queue.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Queue.lvclass:Release Message Queue.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Queue.lvclass:Release Message Queue.vi)
+
+Releases the reference to a message queue.
+
+Use the Obtain Message Queue method to obtain the <B>Message Queue</B> input.
+++++
+
+===== Actor Framework.lvlib:Init Actor Queues FOR TESTING ONLY.vi
+
+:imgpath: Actor Framework.lvlib_Init Actor Queues FOR TESTING ONLY.vi.png
+image::{imgpath}[Actor Framework.lvlib:Init Actor Queues FOR TESTING ONLY.vi]
+
+*Description:*
+++++
+Provides access the To-Self and To-Caller message queues for an actor without launching the actor.
+
+Use this VI to test how an actor handles messages. Do not use this VI in code that you deploy.
+++++
+
+==== NI_SystemLogging.lvlib
+
+===== NI_SystemLogging.lvlib:Write to System Log.vi
+
+:imgpath: NI_SystemLogging.lvlib_Write to System Log.vi.png
+image::{imgpath}[NI_SystemLogging.lvlib:Write to System Log.vi]
+
+*Description:*
+++++
+Writes a message to the nierrlog system log for storage and subsequent viewing.
+++++
+
+==== VITesterUtilities.lvlib
+
+===== VITesterUtilities.lvlib:Get LVClass Name from TD__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get LVClass Name from TD__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get LVClass Name from TD__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Load Test Case from File.vi
+
+:imgpath: VITesterUtilities.lvlib_Load Test Case from File.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Load Test Case from File.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Get LVClass Name from Data String__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get LVClass Name from Data String__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get LVClass Name from Data String__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Set Front Panel Object Control Value__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Set Front Panel Object Control Value__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Set Front Panel Object Control Value__jki_vi_tester.vi]
+
+*Description:*
+++++
+Sets the FP control value of an LVClass control, whose type matches the specific type of object in <B>Object in</B> to the value of <B>Object in</B>.
+++++
+
+===== VITesterUtilities.lvlib:Set Front Panel TestSuite Object Control Value__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Set Front Panel TestSuite Object Control Value__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Set Front Panel TestSuite Object Control Value__jki_vi_tester.vi]
+
+*Description:*
+++++
+Sets the FP control value of an LVClass control, whose type matches the specific type of object in <B>Object in</B> to the value of <B>Object in</B>.
+++++
+
+===== VITesterUtilities.lvlib:Get All__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get All__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get All__jki_vi_tester.vi]
+
+*Description:*
+++++
+Retrieves all elements in tree at and below the starting tag. When Starting Tag and Input Tree Items are left unwired it will return all elements in the tree. 
+++++
+
+===== VITesterUtilities.lvlib:Get Children__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Children__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Children__jki_vi_tester.vi]
+
+*Description:*
+++++
+Collects and returns all tags of parents immediate children. If the parent tag is an empty string, the currently selected item is used.
+++++
+
+===== VITesterUtilities.lvlib:Get Current__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Current__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Current__jki_vi_tester.vi]
+
+*Description:*
+++++
+Returns the tag of the currently selected item in the tree. If there is no item selected an empty string is returned.
+++++
+
+===== VITesterUtilities.lvlib:Get Oldest__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Oldest__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Oldest__jki_vi_tester.vi]
+
+*Description:*
+++++
+Collects and returns all tags of oldest (leftmost) items in the tree.
+++++
+
+===== VITesterUtilities.lvlib:Get Parent__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Parent__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Parent__jki_vi_tester.vi]
+
+*Description:*
+++++
+Retrieves the parent of the child. Uses the currently selected item if input is left unwired or empty string. Also returns a 1-D array of all members in its family starting at its parent and leading back to its most mature member.
+++++
+
+===== VITesterUtilities.lvlib:Get Siblings__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Siblings__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Siblings__jki_vi_tester.vi]
+
+*Description:*
+++++
+Retrieves a 1-D array of tags of all items in the tree that have the same parent and deletes the requested tag giving all siblings of an item. Uses the currently selected item if the tag input is unwired.
+++++
+
+===== VITesterUtilities.lvlib:INDEX - Tree Control__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_INDEX - Tree Control__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:INDEX - Tree Control__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Item Add__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Item Add__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Item Add__jki_vi_tester.vi]
+
+*Description:*
+++++
+Adds a new item to the tree. Uses the current selection if there is no parent value input. The tag is set to the same value as the input text if it is left blank. NOTE: TAGS MUST BE UNIQUE.
+++++
+
+===== VITesterUtilities.lvlib:Item Indent__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Item Indent__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Item Indent__jki_vi_tester.vi]
+
+*Description:*
+++++
+Takes the input tag item and places it along with its children as a child family of its current topmost sibling. Ignores the indent command if there is no current sibling to indent under.
+++++
+
+===== VITesterUtilities.lvlib:Item Modify__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Item Modify__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Item Modify__jki_vi_tester.vi]
+
+*Description:*
+++++
+Modifies an item in the tree. Uses the current item if input is blank. Allows to modify both the tag and text
+++++
+
+===== VITesterUtilities.lvlib:Item Outdent__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Item Outdent__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Item Outdent__jki_vi_tester.vi]
+
+*Description:*
+++++
+Outdents the currently selected item or the input tag to the same indent level of its parent. Places in the topmost position of its siblings thus disrupting the order. If already at the most mature level in the tree, it moves it to the top of the structure.
+++++
+
+===== VITesterUtilities.lvlib:Item Properties__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Item Properties__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Item Properties__jki_vi_tester.vi]
+
+*Description:*
+++++
+Gets a limited set of properties about the input item 
+
+++++
+
+===== VITesterUtilities.lvlib:Item Remove__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Item Remove__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Item Remove__jki_vi_tester.vi]
+
+*Description:*
+++++
+Deletes item from tree along with any children. Uses the current selection if there is no item input. If there is no item selected within the tree it deletes nothing. Returns error code 1136 if an invalid tag is passed in
+++++
+
+===== VITesterUtilities.lvlib:Tag Check__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Tag Check__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Tag Check__jki_vi_tester.vi]
+
+*Description:*
+++++
+Checks the input tag and makes sure that it is a valid tag within the referenced tree. Returns all errors including the invalid tag error.
+++++
+
+===== VITesterUtilities.lvlib:Tag Convert__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Tag Convert__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Tag Convert__jki_vi_tester.vi]
+
+*Description:*
+++++
+Retrieves the text in column 0 assosciated with the Input Tag or if there is no input, the currently selected item. Ignores the call if no item is selected. Returns error code 1136 if an improper tag is input.
+++++
+
+===== VITesterUtilities.lvlib:Tag Find__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Tag Find__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Tag Find__jki_vi_tester.vi]
+
+*Description:*
+++++
+Searches the tree for a tag whose text matches the Input text.
+ 
+USE SPARINGLY - Processor Intensive
+++++
+
+===== VITesterUtilities.lvlib:Tree Collapse__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Tree Collapse__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Tree Collapse__jki_vi_tester.vi]
+
+*Description:*
+++++
+Collapses the tree to the oldest level
+
+++++
+
+===== VITesterUtilities.lvlib:Tree Empty__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Tree Empty__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Tree Empty__jki_vi_tester.vi]
+
+*Description:*
+++++
+Deletes all elements from<B>Tree Reference In</B>. Passes deleted elements from the tree out in a 1-D array. The array is ordered top to bottom item as they were in the tree.
+++++
+
+===== VITesterUtilities.lvlib:Tree Expand__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Tree Expand__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Tree Expand__jki_vi_tester.vi]
+
+*Description:*
+++++
+Expands the entire tree
+++++
+
+===== VITesterUtilities.lvlib:Get Test Members__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Test Members__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Test Members__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Check if Path Is Test__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Check if Path Is Test__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Check if Path Is Test__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Get Project Scan Path__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Project Scan Path__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Project Scan Path__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Find Project Test Objects__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Find Project Test Objects__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Find Project Test Objects__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:GetControlRef__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_GetControlRef__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:GetControlRef__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Create TestCase Template Instance__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Create TestCase Template Instance__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Create TestCase Template Instance__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Create TestSuite Template Instance__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Create TestSuite Template Instance__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Create TestSuite Template Instance__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Check if Path Is Test Class__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Check if Path Is Test Class__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Check if Path Is Test Class__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Get All Project Class Paths__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get All Project Class Paths__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get All Project Class Paths__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Get Platform Path Separator__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Platform Path Separator__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Platform Path Separator__jki_vi_tester.vi]
+
+*Description:*
+++++
+Returns the path separator for the platform on which the software is running, as shown below:
+
+Windows: "\" (backslash)
+Linux: "/" (slash)
+Mac: ":" (colon)
+++++
+
+===== VITesterUtilities.lvlib:Get All Methods from LVObject__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get All Methods from LVObject__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get All Methods from LVObject__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Get All Methods from LVClass Path__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get All Methods from LVClass Path__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get All Methods from LVClass Path__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Create Test GUID__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Create Test GUID__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Create Test GUID__jki_vi_tester.vi]
+
+*Description:*
+++++
+Outputs a <B>random data</B> string of the specified <B>length</B>.
+++++
+
+===== VITesterUtilities.lvlib:Get LV Class Members from Path__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get LV Class Members from Path__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get LV Class Members from Path__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Rename LVClass__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Rename LVClass__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Rename LVClass__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Get Name Or Data Format As String__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Name Or Data Format As String__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Name Or Data Format As String__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Get Class Inheritance from Class Path__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Class Inheritance from Class Path__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Class Inheritance from Class Path__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Expand Pathroot__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Expand Pathroot__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Expand Pathroot__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Convert Relative to Absolute Project Paths__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Convert Relative to Absolute Project Paths__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Convert Relative to Absolute Project Paths__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Get VI Error Out Value__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get VI Error Out Value__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get VI Error Out Value__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:Get Activation Level__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_Get Activation Level__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:Get Activation Level__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== VITesterUtilities.lvlib:CheckForLabVIEW_IDE__jki_vi_tester.vi
+
+:imgpath: VITesterUtilities.lvlib_CheckForLabVIEW_IDE__jki_vi_tester.vi.png
+image::{imgpath}[VITesterUtilities.lvlib:CheckForLabVIEW_IDE__jki_vi_tester.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== AF Debug.lvlib
+
+===== AF Debug.lvlib:Get Actor Handles.vi
+
+:imgpath: AF Debug.lvlib_Get Actor Handles.vi.png
+image::{imgpath}[AF Debug.lvlib:Get Actor Handles.vi]
+
+*Description:*
+++++
+This VI returns an array of handles for currently running actors to use in a debugging tool. Actors are wrapped in handles to limit a debugger's ability to interfere with the operation of the actors and to protect the debugger from actors stopping unexpectedly.
+++++
+
+===== AF Debug.lvlib:Get Registry Update Event.vi
+
+:imgpath: AF Debug.lvlib_Get Registry Update Event.vi.png
+image::{imgpath}[AF Debug.lvlib:Get Registry Update Event.vi]
+
+*Description:*
+++++
+This VI returns an Event registration refnum for an Actor Framework debugger to use to hear about changes to the available debug information of actors. Every time this event fires, new information from the database is available for the debugger to harvest and display. The event itself does not carry any information to avoid duplicating information in the Event queue.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Create.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Create.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Create.vi]
+
+*Description:*
+++++
+Given the information about an actor, provided by the debug layer of the Actor Framework, this VI creates an actor handle that an attached debugger can use for limited manipulation of the running actor.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Emergency Stop.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Emergency Stop.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Emergency Stop.vi]
+
+*Description:*
+++++
+Sends the Stop Msg to the actor with emergency priority.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Open Block Diagram.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Open Block Diagram.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Open Block Diagram.vi]
+
+*Description:*
+++++
+Opens the block diagram of the running actor's Actor Core clone VI.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Open Front Panel.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Open Front Panel.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Open Front Panel.vi]
+
+*Description:*
+++++
+Opens the front panel of the running actor's Actor Core clone VI.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Ping.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Ping.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Ping.vi]
+
+*Description:*
+++++
+Sends the Ping Msg to the actor and waits for a reply to know how long the ping took to arrive. Use this VI in a debugger to test whether the actor is still alive.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Read Details.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Read Details.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Read Details.vi]
+
+*Description:*
+++++
+Reads identification information about the actor, useful for display in a debugger.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Stop.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Stop.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Stop.vi]
+
+*Description:*
+++++
+Sends the Stop Msg to the actor with normal priority.
+++++
+
+===== AF Debug.lvlib:Ping Msg.lvclass:Send Ping.vi
+
+:imgpath: AF Debug.lvlib_Ping Msg.lvclass_Send Ping.vi.png
+image::{imgpath}[AF Debug.lvlib:Ping Msg.lvclass:Send Ping.vi]
+
+*Description:*
+++++
+This VI sends a synchronous message to any actor. This VI outputs the time delay between sending the message and the actor receiving the message (computed using the high-resolution timer). Delay will be zero if there is an error. Errors occur only if the actor has already quit before the ping is sent or if LabVIEW runs out of memory.
+++++
+
+===== AF Debug.lvlib:Ping Msg.lvclass:Do.vi
+
+:imgpath: AF Debug.lvlib_Ping Msg.lvclass_Do.vi.png
+image::{imgpath}[AF Debug.lvlib:Ping Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the Ping Msg to any actor. This VI does not invoke any methods on the actor. It simply returns to the sender the time delay (using the high-resolution timer) between the send and the receive of the message.
+++++
+
+===== AF Debug.lvlib:Get Clone Name.vi
+
+:imgpath: AF Debug.lvlib_Get Clone Name.vi.png
+image::{imgpath}[AF Debug.lvlib:Get Clone Name.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== AF Debug.lvlib:Generate Custom Trace.vi
+
+:imgpath: AF Debug.lvlib_Generate Custom Trace.vi.png
+image::{imgpath}[AF Debug.lvlib:Generate Custom Trace.vi]
+
+*Description:*
+++++
+Generates a DETT (Desktop Execution Trace Toolkit) User Generated Trace. The trace includes the source actor's ID (or debug alias, if available) and a custom message you define.
+++++
+
+===== AF Debug.lvlib:Generate Trace for Dropped Message.vi
+
+:imgpath: AF Debug.lvlib_Generate Trace for Dropped Message.vi.png
+image::{imgpath}[AF Debug.lvlib:Generate Trace for Dropped Message.vi]
+
+*Description:*
+++++
+Generates a DETT User Generated Trace for a message object that was sent to an actor but never received because the actor stopped while the message was still in its queue.
+++++
+
+===== AF Debug.lvlib:Generate Trace for Message.vi
+
+:imgpath: AF Debug.lvlib_Generate Trace for Message.vi.png
+image::{imgpath}[AF Debug.lvlib:Generate Trace for Message.vi]
+
+*Description:*
+++++
+Generates a DETT User Generated Trace for a message object being sent.
+++++
+
+===== AF Debug.lvlib:Generate Trace for New Actor.vi
+
+:imgpath: AF Debug.lvlib_Generate Trace for New Actor.vi.png
+image::{imgpath}[AF Debug.lvlib:Generate Trace for New Actor.vi]
+
+*Description:*
+++++
+Generates a DETT User Generated Trace for an actor being newly launched.
+++++
+
+===== AF Debug.lvlib:Generate Trace for New Time Delayed Message.vi
+
+:imgpath: AF Debug.lvlib_Generate Trace for New Time Delayed Message.vi.png
+image::{imgpath}[AF Debug.lvlib:Generate Trace for New Time Delayed Message.vi]
+
+*Description:*
+++++
+Generates a DETT User Generated Trace for a time-delayed message being created.
+++++
+
+===== AF Debug.lvlib:Generate Trace for Received Message.vi
+
+:imgpath: AF Debug.lvlib_Generate Trace for Received Message.vi.png
+image::{imgpath}[AF Debug.lvlib:Generate Trace for Received Message.vi]
+
+*Description:*
+++++
+Generates a DETT User Generated Trace for a message object being received by an actor.
+++++
+
+===== AF Debug.lvlib:Generate Trace for Skipped Time-Delayed Message.vi
+
+:imgpath: AF Debug.lvlib_Generate Trace for Skipped Time-Delayed Message.vi.png
+image::{imgpath}[AF Debug.lvlib:Generate Trace for Skipped Time-Delayed Message.vi]
+
+*Description:*
+++++
+Generates a DETT User Generated Trace for a repeated time-delayed message deliberately skipping one of its instances.
+++++
+
+===== AF Debug.lvlib:Generate Trace for Stopped Actor.vi
+
+:imgpath: AF Debug.lvlib_Generate Trace for Stopped Actor.vi.png
+image::{imgpath}[AF Debug.lvlib:Generate Trace for Stopped Actor.vi]
+
+*Description:*
+++++
+Generates a DETT User Generated Trace for an actor stopping, whether in response to the Stop Msg or an error or its normal termination.
+++++
+
+===== AF Debug.lvlib:Generate Trace for Stopped Time-Delayed Message.vi
+
+:imgpath: AF Debug.lvlib_Generate Trace for Stopped Time-Delayed Message.vi.png
+image::{imgpath}[AF Debug.lvlib:Generate Trace for Stopped Time-Delayed Message.vi]
+
+*Description:*
+++++
+Generates a DETT User Generated Trace for a time-delayed message transmitting its final iteration.
+++++
+
+=== Classes
+
+This section describes classes public VIs.
+
+==== Test simulado.lvclass
+
+===== Test simulado.lvclass:setUp.vi
+
+:imgpath: Test simulado.lvclass_setUp.vi.png
+image::{imgpath}[Test simulado.lvclass:setUp.vi]
+
+*Description:*
+++++
+setUp runs prior to the test method during test execution.  Use this method to initialize any object data required by your tests.
+++++
+
+===== Test simulado.lvclass:tearDown.vi
+
+:imgpath: Test simulado.lvclass_tearDown.vi.png
+image::{imgpath}[Test simulado.lvclass:tearDown.vi]
+
+*Description:*
+++++
+tearDown runs after the test method has completed.  Use this method to clean up any operations or references that were opened by setUp or the test method.  Unit tests should be independent of other unit tests so this VI should ensure that the next test can run in a 'clean' test environment.
+++++
+
+===== Test simulado.lvclass:testExample.vit
+
+:imgpath: Test simulado.lvclass_testExample.vit.png
+image::{imgpath}[Test simulado.lvclass:testExample.vit]
+
+*Description:*
+++++
+Este VI TEST es para las pruebas del Serial Device simulado.
+Las pruebas a las que está sometido son:
+ADC Read
+Get Port
+Set Port
+Get Pin
+Set Pin
+++++
+
+===== Test simulado.lvclass:temp_VI_UnderTest.vi
+
+:imgpath: Test simulado.lvclass_temp_VI_UnderTest.vi.png
+image::{imgpath}[Test simulado.lvclass:temp_VI_UnderTest.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Test simulado.lvclass:Write port.vi
+
+:imgpath: Test simulado.lvclass_Write port.vi.png
+image::{imgpath}[Test simulado.lvclass:Write port.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Test simulado.lvclass:comand to array bool.vi
+
+:imgpath: Test simulado.lvclass_comand to array bool.vi.png
+image::{imgpath}[Test simulado.lvclass:comand to array bool.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Test simulado.lvclass:Set Pin.vi
+
+:imgpath: Test simulado.lvclass_Set Pin.vi.png
+image::{imgpath}[Test simulado.lvclass:Set Pin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Test simulado.lvclass:ADC.vi
+
+:imgpath: Test simulado.lvclass_ADC.vi.png
+image::{imgpath}[Test simulado.lvclass:ADC.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Serial Device.lvclass
+
+===== Serial Device.lvclass:Desplegar arreglos boleanos.vi
+
+:imgpath: Serial Device.lvclass_Desplegar arreglos boleanos.vi.png
+image::{imgpath}[Serial Device.lvclass:Desplegar arreglos boleanos.vi]
+
+*Description:*
+++++
+Este VI sirve para desplegar el valor de los Leds cuando se hace un GET Port
+++++
+
+===== Serial Device.lvclass:Get_Pin_Status.vi
+
+:imgpath: Serial Device.lvclass_Get_Pin_Status.vi.png
+image::{imgpath}[Serial Device.lvclass:Get_Pin_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Get Pin
+++++
+
+===== Serial Device.lvclass:Get_Port_status.vi
+
+:imgpath: Serial Device.lvclass_Get_Port_status.vi.png
+image::{imgpath}[Serial Device.lvclass:Get_Port_status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Get Port
+++++
+
+===== Serial Device.lvclass:Read_ADC.vi
+
+:imgpath: Serial Device.lvclass_Read_ADC.vi.png
+image::{imgpath}[Serial Device.lvclass:Read_ADC.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Read ADC
+++++
+
+===== Serial Device.lvclass:Set_Pin_Status.vi
+
+:imgpath: Serial Device.lvclass_Set_Pin_Status.vi.png
+image::{imgpath}[Serial Device.lvclass:Set_Pin_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Set Pin
+++++
+
+===== Serial Device.lvclass:Set_Port_Status.vi
+
+:imgpath: Serial Device.lvclass_Set_Port_Status.vi.png
+image::{imgpath}[Serial Device.lvclass:Set_Port_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Set Port
+++++
+
+===== Serial Device.lvclass:Config Puerto.vi
+
+:imgpath: Serial Device.lvclass_Config Puerto.vi.png
+image::{imgpath}[Serial Device.lvclass:Config Puerto.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Serial Device.lvclass:Init and Verificate Port.vi
+
+:imgpath: Serial Device.lvclass_Init and Verificate Port.vi.png
+image::{imgpath}[Serial Device.lvclass:Init and Verificate Port.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Serial Device.lvclass:Visa_Write read_UI GETPIN.vi
+
+:imgpath: Serial Device.lvclass_Visa_Write read_UI GETPIN.vi.png
+image::{imgpath}[Serial Device.lvclass:Visa_Write read_UI GETPIN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Serial Device.lvclass:Visa_Write read_UI GETPORT.vi
+
+:imgpath: Serial Device.lvclass_Visa_Write read_UI GETPORT.vi.png
+image::{imgpath}[Serial Device.lvclass:Visa_Write read_UI GETPORT.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Serial Device.lvclass:Visa_Write read_UI SETPIN.vi
+
+:imgpath: Serial Device.lvclass_Visa_Write read_UI SETPIN.vi.png
+image::{imgpath}[Serial Device.lvclass:Visa_Write read_UI SETPIN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Cypress.lvclass
+
+===== Cypress.lvclass:Visa_Write read_UI GETPIN.vi
+
+:imgpath: Cypress.lvclass_Visa_Write read_UI GETPIN.vi.png
+image::{imgpath}[Cypress.lvclass:Visa_Write read_UI GETPIN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Cypress.lvclass:Visa_Write read_UI GETPORT.vi
+
+:imgpath: Cypress.lvclass_Visa_Write read_UI GETPORT.vi.png
+image::{imgpath}[Cypress.lvclass:Visa_Write read_UI GETPORT.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Cypress.lvclass:Visa_Write read_UI SETPIN.vi
+
+:imgpath: Cypress.lvclass_Visa_Write read_UI SETPIN.vi.png
+image::{imgpath}[Cypress.lvclass:Visa_Write read_UI SETPIN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Cypress.lvclass:Desplegar arreglos boleanos.vi
+
+:imgpath: Cypress.lvclass_Desplegar arreglos boleanos.vi.png
+image::{imgpath}[Cypress.lvclass:Desplegar arreglos boleanos.vi]
+
+*Description:*
+++++
+Este VI sirve para desplegar el valor de los Leds cuando se hace un GET Port
+++++
+
+===== Cypress.lvclass:Get_Pin_Status.vi
+
+:imgpath: Cypress.lvclass_Get_Pin_Status.vi.png
+image::{imgpath}[Cypress.lvclass:Get_Pin_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Get Pin
+++++
+
+===== Cypress.lvclass:Get_Port_status.vi
+
+:imgpath: Cypress.lvclass_Get_Port_status.vi.png
+image::{imgpath}[Cypress.lvclass:Get_Port_status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Get Port
+++++
+
+===== Cypress.lvclass:Read_ADC.vi
+
+:imgpath: Cypress.lvclass_Read_ADC.vi.png
+image::{imgpath}[Cypress.lvclass:Read_ADC.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Read ADC
+++++
+
+===== Cypress.lvclass:Set_Pin_Status.vi
+
+:imgpath: Cypress.lvclass_Set_Pin_Status.vi.png
+image::{imgpath}[Cypress.lvclass:Set_Pin_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Set Pin
+++++
+
+===== Cypress.lvclass:Set_Port_Status.vi
+
+:imgpath: Cypress.lvclass_Set_Port_Status.vi.png
+image::{imgpath}[Cypress.lvclass:Set_Port_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Set Port
+++++
+
+==== NXP.lvclass
+
+===== NXP.lvclass:Visa_Write read_UI GETPIN.vi
+
+:imgpath: NXP.lvclass_Visa_Write read_UI GETPIN.vi.png
+image::{imgpath}[NXP.lvclass:Visa_Write read_UI GETPIN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== NXP.lvclass:Visa_Write read_UI SETPIN.vi
+
+:imgpath: NXP.lvclass_Visa_Write read_UI SETPIN.vi.png
+image::{imgpath}[NXP.lvclass:Visa_Write read_UI SETPIN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== NXP.lvclass:Desplegar arreglos boleanos.vi
+
+:imgpath: NXP.lvclass_Desplegar arreglos boleanos.vi.png
+image::{imgpath}[NXP.lvclass:Desplegar arreglos boleanos.vi]
+
+*Description:*
+++++
+Este VI sirve para desplegar el valor de los Leds cuando se hace un GET Port
+++++
+
+===== NXP.lvclass:Get_Pin_Status.vi
+
+:imgpath: NXP.lvclass_Get_Pin_Status.vi.png
+image::{imgpath}[NXP.lvclass:Get_Pin_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Get Pin
+++++
+
+===== NXP.lvclass:Get_Port_status.vi
+
+:imgpath: NXP.lvclass_Get_Port_status.vi.png
+image::{imgpath}[NXP.lvclass:Get_Port_status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Get Port
+++++
+
+===== NXP.lvclass:Read_ADC.vi
+
+:imgpath: NXP.lvclass_Read_ADC.vi.png
+image::{imgpath}[NXP.lvclass:Read_ADC.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Read ADC
+
+++++
+
+===== NXP.lvclass:Set_Pin_Status.vi
+
+:imgpath: NXP.lvclass_Set_Pin_Status.vi.png
+image::{imgpath}[NXP.lvclass:Set_Pin_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Set Pin
+++++
+
+===== NXP.lvclass:Set_Port_Status.vi
+
+:imgpath: NXP.lvclass_Set_Port_Status.vi.png
+image::{imgpath}[NXP.lvclass:Set_Port_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Set Port
+++++
+
+==== Simulado.lvclass
+
+===== Simulado.lvclass:Visa_Write read_UI GETPIN.vi
+
+:imgpath: Simulado.lvclass_Visa_Write read_UI GETPIN.vi.png
+image::{imgpath}[Simulado.lvclass:Visa_Write read_UI GETPIN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Simulado.lvclass:Visa_Write read_UI SETPIN.vi
+
+:imgpath: Simulado.lvclass_Visa_Write read_UI SETPIN.vi.png
+image::{imgpath}[Simulado.lvclass:Visa_Write read_UI SETPIN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Simulado.lvclass:Desplegar arreglos boleanos.vi
+
+:imgpath: Simulado.lvclass_Desplegar arreglos boleanos.vi.png
+image::{imgpath}[Simulado.lvclass:Desplegar arreglos boleanos.vi]
+
+*Description:*
+++++
+Este VI sirve para desplegar el valor de los Leds cuando se hace un GET Port
+++++
+
+===== Simulado.lvclass:Get_Pin_Status.vi
+
+:imgpath: Simulado.lvclass_Get_Pin_Status.vi.png
+image::{imgpath}[Simulado.lvclass:Get_Pin_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Get Pin
+++++
+
+===== Simulado.lvclass:Get_Port_status.vi
+
+:imgpath: Simulado.lvclass_Get_Port_status.vi.png
+image::{imgpath}[Simulado.lvclass:Get_Port_status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Get Port
+++++
+
+===== Simulado.lvclass:Read_ADC.vi
+
+:imgpath: Simulado.lvclass_Read_ADC.vi.png
+image::{imgpath}[Simulado.lvclass:Read_ADC.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Read ADC
+++++
+
+===== Simulado.lvclass:Set_Pin_Status.vi
+
+:imgpath: Simulado.lvclass_Set_Pin_Status.vi.png
+image::{imgpath}[Simulado.lvclass:Set_Pin_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Set Pin
+++++
+
+===== Simulado.lvclass:Set_Port_Status.vi
+
+:imgpath: Simulado.lvclass_Set_Port_Status.vi.png
+image::{imgpath}[Simulado.lvclass:Set_Port_Status.vi]
+
+*Description:*
+++++
+Arma el comando y una presupuestada respuesta para el comando de Set Port
+++++
+
+==== Buttons Msg.lvclass
+
+===== UI Actor.lvlib:Buttons Msg.lvclass:Send Buttons.vi
+
+:imgpath: UI Actor.lvlib_Buttons Msg.lvclass_Send Buttons.vi.png
+image::{imgpath}[UI Actor.lvlib:Buttons Msg.lvclass:Send Buttons.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Buttons Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Buttons Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Buttons Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Close Visa Msg.lvclass
+
+===== UI Actor.lvlib:Close Visa Msg.lvclass:Send Close Visa.vi
+
+:imgpath: UI Actor.lvlib_Close Visa Msg.lvclass_Send Close Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:Close Visa Msg.lvclass:Send Close Visa.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Close Visa Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Close Visa Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Close Visa Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Get Pin Status_UI Actor Msg.lvclass
+
+===== UI Actor.lvlib:Get Pin Status_UI Actor Msg.lvclass:Send Get Pin Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Get Pin Status_UI Actor Msg.lvclass_Send Get Pin Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Get Pin Status_UI Actor Msg.lvclass:Send Get Pin Status_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Get Pin Status_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Get Pin Status_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Get Pin Status_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Get Port Status_UI Actor Msg.lvclass
+
+===== UI Actor.lvlib:Get Port Status_UI Actor Msg.lvclass:Send Get Port Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Get Port Status_UI Actor Msg.lvclass_Send Get Port Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Get Port Status_UI Actor Msg.lvclass:Send Get Port Status_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Get Port Status_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Get Port Status_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Get Port Status_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Mensaje de desconexion Msg.lvclass
+
+===== UI Actor.lvlib:Mensaje de desconexion Msg.lvclass:Send Mensaje de desconexion.vi
+
+:imgpath: UI Actor.lvlib_Mensaje de desconexion Msg.lvclass_Send Mensaje de desconexion.vi.png
+image::{imgpath}[UI Actor.lvlib:Mensaje de desconexion Msg.lvclass:Send Mensaje de desconexion.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Mensaje de desconexion Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Mensaje de desconexion Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Mensaje de desconexion Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Read ADC_UI Actor Msg.lvclass
+
+===== UI Actor.lvlib:Read ADC_UI Actor Msg.lvclass:Send Read ADC_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Read ADC_UI Actor Msg.lvclass_Send Read ADC_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Read ADC_UI Actor Msg.lvclass:Send Read ADC_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Read ADC_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Read ADC_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Read ADC_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Read Visa Msg.lvclass
+
+===== UI Actor.lvlib:Read Visa Msg.lvclass:Send Read Visa.vi
+
+:imgpath: UI Actor.lvlib_Read Visa Msg.lvclass_Send Read Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:Read Visa Msg.lvclass:Send Read Visa.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Read Visa Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Read Visa Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Read Visa Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Set byte 0 Msg.lvclass
+
+===== UI Actor.lvlib:Set byte 0 Msg.lvclass:Send Set byte 0.vi
+
+:imgpath: UI Actor.lvlib_Set byte 0 Msg.lvclass_Send Set byte 0.vi.png
+image::{imgpath}[UI Actor.lvlib:Set byte 0 Msg.lvclass:Send Set byte 0.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set byte 0 Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set byte 0 Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set byte 0 Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Set byte 1 Msg.lvclass
+
+===== UI Actor.lvlib:Set byte 1 Msg.lvclass:Send Set byte 1.vi
+
+:imgpath: UI Actor.lvlib_Set byte 1 Msg.lvclass_Send Set byte 1.vi.png
+image::{imgpath}[UI Actor.lvlib:Set byte 1 Msg.lvclass:Send Set byte 1.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set byte 1 Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set byte 1 Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set byte 1 Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Set CH Msg.lvclass
+
+===== UI Actor.lvlib:Set CH Msg.lvclass:Send Set CH.vi
+
+:imgpath: UI Actor.lvlib_Set CH Msg.lvclass_Send Set CH.vi.png
+image::{imgpath}[UI Actor.lvlib:Set CH Msg.lvclass:Send Set CH.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set CH Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set CH Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set CH Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Set Com Port Msg.lvclass
+
+===== UI Actor.lvlib:Set Com Port Msg.lvclass:Send Set Com Port.vi
+
+:imgpath: UI Actor.lvlib_Set Com Port Msg.lvclass_Send Set Com Port.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Com Port Msg.lvclass:Send Set Com Port.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set Com Port Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set Com Port Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Com Port Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Set Pin Msg.lvclass
+
+===== UI Actor.lvlib:Set Pin Msg.lvclass:Send Set Pin.vi
+
+:imgpath: UI Actor.lvlib_Set Pin Msg.lvclass_Send Set Pin.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Pin Msg.lvclass:Send Set Pin.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set Pin Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set Pin Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Pin Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Set Pin Status_UI Actor Msg.lvclass
+
+===== UI Actor.lvlib:Set Pin Status_UI Actor Msg.lvclass:Send Set Pin Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Set Pin Status_UI Actor Msg.lvclass_Send Set Pin Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Pin Status_UI Actor Msg.lvclass:Send Set Pin Status_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set Pin Status_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set Pin Status_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Pin Status_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Set Port Status_UI Actor Msg.lvclass
+
+===== UI Actor.lvlib:Set Port Status_UI Actor Msg.lvclass:Send Set Port Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_Set Port Status_UI Actor Msg.lvclass_Send Set Port Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Port Status_UI Actor Msg.lvclass:Send Set Port Status_UI Actor.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set Port Status_UI Actor Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set Port Status_UI Actor Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set Port Status_UI Actor Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Set valor PIN Msg.lvclass
+
+===== UI Actor.lvlib:Set valor PIN Msg.lvclass:Send Set valor PIN.vi
+
+:imgpath: UI Actor.lvlib_Set valor PIN Msg.lvclass_Send Set valor PIN.vi.png
+image::{imgpath}[UI Actor.lvlib:Set valor PIN Msg.lvclass:Send Set valor PIN.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Set valor PIN Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Set valor PIN Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Set valor PIN Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== UI Actor.lvclass
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Pin Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Pin Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Pin Status_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de SET PIN  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Get Pin Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Get Pin Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Get Pin Status_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de GET PIN  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Get Port Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Get Port Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Get Port Status_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de GET PORT  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read ADC_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read ADC_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read ADC_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de READ ADC  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Port Status_UI Actor.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Port Status_UI Actor.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Port Status_UI Actor.vi]
+
+*Description:*
+++++
+Hace toda la accion de SET PORT  para cualquier microcontrolador 
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set byte 1.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set byte 1.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set byte 1.vi]
+
+*Description:*
+++++
+Carga el valor de Byte 1 para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set valor PIN.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set valor PIN.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set valor PIN.vi]
+
+*Description:*
+++++
+Carga el valor de PIN  para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Pin.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Pin.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Pin.vi]
+
+*Description:*
+++++
+Carga el valor de Pin para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set CH.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set CH.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set CH.vi]
+
+*Description:*
+++++
+Carga el valor del canal para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Buttons.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Buttons.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Buttons.vi]
+
+*Description:*
+++++
+Carga el valor de los botones  para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set byte 0.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set byte 0.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set byte 0.vi]
+
+*Description:*
+++++
+Carga el valor de Byte 0 para  el actor
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Com Port.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Com Port.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Com Port.vi]
+
+*Description:*
+++++
+Vi para seleccionar el puerto com
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Mensaje de desconexion.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Mensaje de desconexion.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Mensaje de desconexion.vi]
+
+*Description:*
+++++
+Manda un mensaje de desconexión en caso de oprimir el botón para desconectar el dispositivo
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Close Visa.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Close Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Close Visa.vi]
+
+*Description:*
+++++
+cierra visa
+
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Visa.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Visa.vi]
+
+*Description:*
+++++
+lee visa
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Error conexión.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Error conexión.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Error conexión.vi]
+
+*Description:*
+++++
+Maneja el error de conexión y manda mensaje para que pueda intentarlo de nuevo
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read and Write Visa.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read and Write Visa.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read and Write Visa.vi]
+
+*Description:*
+++++
+Lee y escribe en el puerto serial
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Expected message.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Expected message.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Expected message.vi]
+
+*Description:*
+++++
+Espera el mensaje esperado, es para la visualizacion de los leds
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Enable_Disable.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Enable_Disable.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Enable_Disable.vi]
+
+*Description:*
+++++
+Habilita o desabilta dependiendo la conexión
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Get Pin Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Get Pin Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Get Pin Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de GET PIN
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:ADC Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_ADC Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:ADC Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de ADC
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Pin Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Pin Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Pin Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de SET PIN
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Get Port Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Get Port Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Get Port Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de GET PORT
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Set Port Simulated.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Set Port Simulated.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Set Port Simulated.vi]
+
+*Description:*
+++++
+Ayuda al microcontrolador a hacer la acción de SET PORT
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Serial Device.lvclass.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Serial Device.lvclass.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Serial Device.lvclass.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Serial Device.lvclass.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Serial Device.lvclass.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Serial Device.lvclass.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Serial Devide Brand.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Serial Devide Brand.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Serial Devide Brand.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Serial Devide Brand.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Serial Devide Brand.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Serial Devide Brand.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Message.lvclass
+
+===== Actor Framework.lvlib:Message.lvclass:Do.vi
+
+:imgpath: Actor Framework.lvlib_Message.lvclass_Do.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message.lvclass:Do.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message.lvclass:Do.vi)
+
+Defines what a message does when it is received by an actor. Generally, a message instructs an actor to invoke one of its methods. By default, this method does nothing. A child class must override it to define behavior.
+++++
+
+==== Stop Msg.lvclass
+
+===== Actor Framework.lvlib:Stop Msg.lvclass:Send Normal Stop.vi
+
+:imgpath: Actor Framework.lvlib_Stop Msg.lvclass_Send Normal Stop.vi.png
+image::{imgpath}[Actor Framework.lvlib:Stop Msg.lvclass:Send Normal Stop.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Stop Msg.lvclass:Send Normal Stop.vi)
+
+Sends a Stop message to an actor, triggering the actor to run its Stop Core method. This message has normal priority, meaning the actor will process this message after processing high- or normal-priority messages that are in the queue already.
+++++
+
+===== Actor Framework.lvlib:Stop Msg.lvclass:Send Emergency Stop.vi
+
+:imgpath: Actor Framework.lvlib_Stop Msg.lvclass_Send Emergency Stop.vi.png
+image::{imgpath}[Actor Framework.lvlib:Stop Msg.lvclass:Send Emergency Stop.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Stop Msg.lvclass:Send Emergency Stop.vi)
+
+Sends an Emergency Stop message to an actor, triggering the actor to shut down as quickly as possible. This message has critical priority, meaning it will be processed before all messages that are already in the queue.
+++++
+
+===== Actor Framework.lvlib:Stop Msg.lvclass:Send Normal or Emergency Stop.vi
+
+:imgpath: Actor Framework.lvlib_Stop Msg.lvclass_Send Normal or Emergency Stop.vi.png
+image::{imgpath}[Actor Framework.lvlib:Stop Msg.lvclass:Send Normal or Emergency Stop.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Stop Msg.lvclass:Send Normal or Emergency Stop.vi)
+
+Sends a Stop message to an actor. The priority of this message is determined by the value of the <B>final error code</B> input. If this input is 0, this VI sends the message with normal priority; otherwise, it sends the message with critical priority.
+++++
+
+===== Actor Framework.lvlib:Stop Msg.lvclass:Do.vi
+
+:imgpath: Actor Framework.lvlib_Stop Msg.lvclass_Do.vi.png
+image::{imgpath}[Actor Framework.lvlib:Stop Msg.lvclass:Do.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Last Ack.lvclass
+
+===== Actor Framework.lvlib:Last Ack.lvclass:Do.vi
+
+:imgpath: Actor Framework.lvlib_Last Ack.lvclass_Do.vi.png
+image::{imgpath}[Actor Framework.lvlib:Last Ack.lvclass:Do.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Actor Framework.lvlib:Last Ack.lvclass:Read Actor.vi
+
+:imgpath: Actor Framework.lvlib_Last Ack.lvclass_Read Actor.vi.png
+image::{imgpath}[Actor Framework.lvlib:Last Ack.lvclass:Read Actor.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Last Ack.lvclass:Read Actor.vi)
+
+Returns the state the actor was in when it shut down.
+++++
+
+===== Actor Framework.lvlib:Last Ack.lvclass:Read Error Report.vi
+
+:imgpath: Actor Framework.lvlib_Last Ack.lvclass_Read Error Report.vi.png
+image::{imgpath}[Actor Framework.lvlib:Last Ack.lvclass:Read Error Report.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Last Ack.lvclass:Read Error Report.vi)
+
+Returns the error, if any, that caused an actor to shut down.
+++++
+
+===== Actor Framework.lvlib:Last Ack.lvclass:Read Caller-To-Actor Enqueuer.vi
+
+:imgpath: Actor Framework.lvlib_Last Ack.lvclass_Read Caller-To-Actor Enqueuer.vi.png
+image::{imgpath}[Actor Framework.lvlib:Last Ack.lvclass:Read Caller-To-Actor Enqueuer.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Last Ack.lvclass:Read Caller-To-Actor Enqueuer.vi)
+
+Returns the reference the caller used to send messages to the actor. Although the reference is invalid, you can use it to identify which actor shut down.
+++++
+
+==== Launch Nested Actor Msg.lvclass
+
+
+==== Actor.lvclass
+
+===== Actor Framework.lvlib:Actor.lvclass:Launch Actor.vi
+
+:imgpath: Actor Framework.lvlib_Actor.lvclass_Launch Actor.vi.png
+image::{imgpath}[Actor Framework.lvlib:Actor.lvclass:Launch Actor.vi]
+
+*Description:*
+++++
+LabVIEW no longer supports this VI. Use the Actor:Launch Root Actor VI or Actor:Launch Nested Actor VI instead.
+Launches a top-level VI that handles messages for an actor and starts this actor's tasks. This VI returns a reference to the queue you use to send messages to the actor.
+
+This VI requires the <B>Actor-to-Caller Enqueuer</B> input, which is the reference that allows the launched actor to communicate with the caller. If you are launching the top-level actor, use the Read Enqueuer method to obtain this reference. If you are launching a nested actor, use the Read Self Enqueuer method instead.
+++++
+
+===== Actor Framework.lvlib:Actor.lvclass:Launch Root Actor.vi
+
+:imgpath: Actor Framework.lvlib_Actor.lvclass_Launch Root Actor.vi.png
+image::{imgpath}[Actor Framework.lvlib:Actor.lvclass:Launch Root Actor.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Actor.lvclass:Launch Root Actor.vi)
+
+Launches an asynchronously running VI that performs tasks and handles messages for the <B>Actor</B>. This VI returns a reference to an enqueuer that you can use to send messages to the newly launched actor.
+
+The Launch Root Actor VI launches the <B>Actor</B> without a caller. Use this VI to launch the root actor of the actor tree. Use the Launch Nested Actor VI to launch all other actors.
+++++
+
+==== Message Priority Queue.lvclass
+
+
+==== Message Enqueuer.lvclass
+
+===== Actor Framework.lvlib:Message Enqueuer.lvclass:Enqueue.vi
+
+:imgpath: Actor Framework.lvlib_Message Enqueuer.lvclass_Enqueue.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Enqueuer.lvclass:Enqueue.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Enqueuer.lvclass:Enqueue.vi)
+
+Sends a message.
+++++
+
+===== Actor Framework.lvlib:Message Enqueuer.lvclass:Equals Not A Refnum.vi
+
+:imgpath: Actor Framework.lvlib_Message Enqueuer.lvclass_Equals Not A Refnum.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Enqueuer.lvclass:Equals Not A Refnum.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Enqueuer.lvclass:Equals Not A Refnum.vi)
+
+Checks whether a message enqueuer reference is equal to Not a Refnum. Unlike the Not a Number/Path/Refnum? function, this function does not check whether a non-zero reference still is valid. Refer to the detailed help for more information.
+++++
+
+==== Message Dequeuer.lvclass
+
+===== Actor Framework.lvlib:Message Dequeuer.lvclass:Dequeue.vi
+
+:imgpath: Actor Framework.lvlib_Message Dequeuer.lvclass_Dequeue.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Dequeuer.lvclass:Dequeue.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Dequeuer.lvclass:Dequeue.vi)
+
+Reads a message that a top-level actor sent to its caller. Use this VI to interact with non-actor code, not in a VI that belongs to an actor.
+++++
+
+===== Actor Framework.lvlib:Message Dequeuer.lvclass:Equals Not A Refnum.vi
+
+:imgpath: Actor Framework.lvlib_Message Dequeuer.lvclass_Equals Not A Refnum.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Dequeuer.lvclass:Equals Not A Refnum.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Dequeuer.lvclass:Equals Not A Refnum.vi)
+
+Checks whether a message dequeuer reference is equal to Not a Refnum. Unlike the Not a Number/Path/Refnum? function, this function does not check whether a non-zero reference still is valid. Refer to the detailed help for more information.
+++++
+
+==== Message Queue.lvclass
+
+===== Actor Framework.lvlib:Message Queue.lvclass:Obtain Message Queue.vi
+
+:imgpath: Actor Framework.lvlib_Message Queue.lvclass_Obtain Message Queue.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Queue.lvclass:Obtain Message Queue.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Queue.lvclass:Obtain Message Queue.vi)
+
+Obtains the reference to the message queue that the caller uses to communicate with the top-level actor.
+++++
+
+===== Actor Framework.lvlib:Message Queue.lvclass:Read Dequeuer.vi
+
+:imgpath: Actor Framework.lvlib_Message Queue.lvclass_Read Dequeuer.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Queue.lvclass:Read Dequeuer.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Queue.lvclass:Read Dequeuer.vi)
+
+Extracts the reference needed to read messages from the top-level actor.
+
+Use the Obtain Message Queue method to obtain the <B>Message Queue</B> input.
+++++
+
+===== Actor Framework.lvlib:Message Queue.lvclass:Read Enqueuer.vi
+
+:imgpath: Actor Framework.lvlib_Message Queue.lvclass_Read Enqueuer.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Queue.lvclass:Read Enqueuer.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Queue.lvclass:Read Enqueuer.vi)
+
+Extracts the reference needed to send messages to the top-level actor.
+
+Use the Obtain Message Queue method to obtain the <B>Message Queue</B> input.
+++++
+
+===== Actor Framework.lvlib:Message Queue.lvclass:Release Message Queue.vi
+
+:imgpath: Actor Framework.lvlib_Message Queue.lvclass_Release Message Queue.vi.png
+image::{imgpath}[Actor Framework.lvlib:Message Queue.lvclass:Release Message Queue.vi]
+
+*Description:*
+++++
+(<B>Filename</B>: Actor Framework.lvlib:Message Queue.lvclass:Release Message Queue.vi)
+
+Releases the reference to a message queue.
+
+Use the Obtain Message Queue method to obtain the <B>Message Queue</B> input.
+++++
+
+==== TestCase.lvclass
+
+===== TestCase.lvclass:globalSetUp.vi
+
+:imgpath: TestCase.lvclass_globalSetUp.vi.png
+image::{imgpath}[TestCase.lvclass:globalSetUp.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:TestCase_Init.vi
+
+:imgpath: TestCase.lvclass_TestCase_Init.vi.png
+image::{imgpath}[TestCase.lvclass:TestCase_Init.vi]
+
+*Description:*
+++++
+Initialize a TestCase object with methodName.  methodName is the test method VI name (without .vi extension).
+
+This VI should be called whenever a new TestCase object is needed such as during TestSuite.New method calls.
+++++
+
+===== TestCase.lvclass:CleanUp.vi
+
+:imgpath: TestCase.lvclass_CleanUp.vi.png
+image::{imgpath}[TestCase.lvclass:CleanUp.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:countTestCases.vi
+
+:imgpath: TestCase.lvclass_countTestCases.vi.png
+image::{imgpath}[TestCase.lvclass:countTestCases.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:defaultTestResult.vi
+
+:imgpath: TestCase.lvclass_defaultTestResult.vi.png
+image::{imgpath}[TestCase.lvclass:defaultTestResult.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:shortDescription.vi
+
+:imgpath: TestCase.lvclass_shortDescription.vi.png
+image::{imgpath}[TestCase.lvclass:shortDescription.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:id.vi
+
+:imgpath: TestCase.lvclass_id.vi.png
+image::{imgpath}[TestCase.lvclass:id.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:run.vi
+
+:imgpath: TestCase.lvclass_run.vi.png
+image::{imgpath}[TestCase.lvclass:run.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:debug.vi
+
+:imgpath: TestCase.lvclass_debug.vi.png
+image::{imgpath}[TestCase.lvclass:debug.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:fail.vi
+
+:imgpath: TestCase.lvclass_fail.vi.png
+image::{imgpath}[TestCase.lvclass:fail.vi]
+
+*Description:*
+++++
+Force TestCase in to fail.  'Message' is appended to failure status.
+++++
+
+===== TestCase.lvclass:failIf.vi
+
+:imgpath: TestCase.lvclass_failIf.vi.png
+image::{imgpath}[TestCase.lvclass:failIf.vi]
+
+*Description:*
+++++
+Fail if 'fail' condition is TRUE.  On failure, 'message' is appended to failure status.
+++++
+
+===== TestCase.lvclass:failUnless.vi
+
+:imgpath: TestCase.lvclass_failUnless.vi.png
+image::{imgpath}[TestCase.lvclass:failUnless.vi]
+
+*Description:*
+++++
+{Obsolete - kept for compatiblity only}
+
+Fail if 'pass' condition is FALSE.  On failure, 'message' is appended to failure status.
+++++
+
+===== TestCase.lvclass:failUnlessError.vi
+
+:imgpath: TestCase.lvclass_failUnlessError.vi.png
+image::{imgpath}[TestCase.lvclass:failUnlessError.vi]
+
+*Description:*
+++++
+{Obsolete - kept for compatiblity only}
+
+Fail if 'error.status'=FALSE.  'error' is the error generated by the task.  'task' is the description of the task failure.  'error in' is for framework errors not related to the test task.
+++++
+
+===== TestCase.lvclass:failUnlessEqual.vi
+
+:imgpath: TestCase.lvclass_failUnlessEqual.vi.png
+image::{imgpath}[TestCase.lvclass:failUnlessEqual.vi]
+
+*Description:*
+++++
+{Obsolete - kept for compatiblity only}
+
+Fail test if 'x' != 'y'.  'delta (optional)' if specified must be a numeric format and forces 'x', 'y' to be numeric.  If 'delta' is not specified, x,y can be any variant data.
+++++
+
+===== TestCase.lvclass:failIfEqual.vi
+
+:imgpath: TestCase.lvclass_failIfEqual.vi.png
+image::{imgpath}[TestCase.lvclass:failIfEqual.vi]
+
+*Description:*
+++++
+Fail test if 'x' = 'y'.  'delta (optional)' if specified must be a numeric format and forces 'x', 'y' to be numeric.  If 'delta' is not specified, x,y can be any variant data.
+++++
+
+===== TestCase.lvclass:str.vi
+
+:imgpath: TestCase.lvclass_str.vi.png
+image::{imgpath}[TestCase.lvclass:str.vi]
+
+*Description:*
+++++
+method name[tab]class name
+++++
+
+===== TestCase.lvclass:TestCase_ShellInit.vi
+
+:imgpath: TestCase.lvclass_TestCase_ShellInit.vi.png
+image::{imgpath}[TestCase.lvclass:TestCase_ShellInit.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:CheckPassFailOutputs.vi
+
+:imgpath: TestCase.lvclass_CheckPassFailOutputs.vi.png
+image::{imgpath}[TestCase.lvclass:CheckPassFailOutputs.vi]
+
+*Description:*
+++++
+Checks for Pass and Fail indicators.  If either or both is found then check their status to determine if test passed or failed.
+++++
+
+===== TestCase.lvclass:skip.vi
+
+:imgpath: TestCase.lvclass_skip.vi.png
+image::{imgpath}[TestCase.lvclass:skip.vi]
+
+*Description:*
+++++
+If called within a running test, it will signal to the Test Runner that the test was skipped.  If called before a test is actually run, it will causes the test to be skipped (and not actually run).   
+
+skipMessage can be used to document a reason the test was skipped during test execution.
+++++
+
+===== TestCase.lvclass:listAllTestMethods.vi
+
+:imgpath: TestCase.lvclass_listAllTestMethods.vi.png
+image::{imgpath}[TestCase.lvclass:listAllTestMethods.vi]
+
+*Description:*
+++++
+List all test methods that are members of the current TestCase class.
+++++
+
+===== TestCase.lvclass:passIf.vi
+
+:imgpath: TestCase.lvclass_passIf.vi.png
+image::{imgpath}[TestCase.lvclass:passIf.vi]
+
+*Description:*
+++++
+Pass if 'pass' condition is TRUE.  On failure, 'message' is appended to failure status.
+++++
+
+===== TestCase.lvclass:passIfError.vi
+
+:imgpath: TestCase.lvclass_passIfError.vi.png
+image::{imgpath}[TestCase.lvclass:passIfError.vi]
+
+*Description:*
+++++
+Pass if 'error.status'=TRUE.  'error' is the error generated by the task.  'task' is the description of the task failure.  'error in' is for framework errors not related to the test task.  'passing error codes' can be used to define specific error codes that will cause the test to pass so that unexpected errors are still raised as test failures.
+
+Use this method when you want to test that an expected error is correctly raised.
+++++
+
+===== TestCase.lvclass:passIfEqual.vi
+
+:imgpath: TestCase.lvclass_passIfEqual.vi.png
+image::{imgpath}[TestCase.lvclass:passIfEqual.vi]
+
+*Description:*
+++++
+Pass test if 'x' = 'y'.  'delta (optional)' if specified must be a numeric format and forces 'x', 'y' to be numeric.  If 'delta' is not specified, x,y can be any variant data.
+++++
+
+===== TestCase.lvclass:getSkipMessage.vi
+
+:imgpath: TestCase.lvclass_getSkipMessage.vi.png
+image::{imgpath}[TestCase.lvclass:getSkipMessage.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:getCustomReportText.vi
+
+:imgpath: TestCase.lvclass_getCustomReportText.vi.png
+image::{imgpath}[TestCase.lvclass:getCustomReportText.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestCase.lvclass:globalTearDown.vi
+
+:imgpath: TestCase.lvclass_globalTearDown.vi.png
+image::{imgpath}[TestCase.lvclass:globalTearDown.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== TestLoader.lvclass
+
+===== TestLoader.lvclass:TestLoader_Init.vi
+
+:imgpath: TestLoader.lvclass_TestLoader_Init.vi.png
+image::{imgpath}[TestLoader.lvclass:TestLoader_Init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestLoader.lvclass:CleanUp.vi
+
+:imgpath: TestLoader.lvclass_CleanUp.vi.png
+image::{imgpath}[TestLoader.lvclass:CleanUp.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestLoader.lvclass:loadTestsFromTestCase.vi
+
+:imgpath: TestLoader.lvclass_loadTestsFromTestCase.vi.png
+image::{imgpath}[TestLoader.lvclass:loadTestsFromTestCase.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestLoader.lvclass:loadTest.vi
+
+:imgpath: TestLoader.lvclass_loadTest.vi.png
+image::{imgpath}[TestLoader.lvclass:loadTest.vi]
+
+*Description:*
+++++
+This VI runs a specified test method
+++++
+
+===== TestLoader.lvclass:loadTestsFromTestCases.vi
+
+:imgpath: TestLoader.lvclass_loadTestsFromTestCases.vi.png
+image::{imgpath}[TestLoader.lvclass:loadTestsFromTestCases.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestLoader.lvclass:getTestsFromTestCase.vi
+
+:imgpath: TestLoader.lvclass_getTestsFromTestCase.vi.png
+image::{imgpath}[TestLoader.lvclass:getTestsFromTestCase.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestLoader.lvclass:getTestsFromTestCaseByClassPath.vi
+
+:imgpath: TestLoader.lvclass_getTestsFromTestCaseByClassPath.vi.png
+image::{imgpath}[TestLoader.lvclass:getTestsFromTestCaseByClassPath.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestLoader.lvclass:loadTestsFromTestTag.vi
+
+:imgpath: TestLoader.lvclass_loadTestsFromTestTag.vi.png
+image::{imgpath}[TestLoader.lvclass:loadTestsFromTestTag.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestLoader.lvclass:getTestsFromTestCaseObject.vi
+
+:imgpath: TestLoader.lvclass_getTestsFromTestCaseObject.vi.png
+image::{imgpath}[TestLoader.lvclass:getTestsFromTestCaseObject.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== TestResult.lvclass
+
+===== TestResult.lvclass:TestResult_Init.vi
+
+:imgpath: TestResult.lvclass_TestResult_Init.vi.png
+image::{imgpath}[TestResult.lvclass:TestResult_Init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:CleanUp.vi
+
+:imgpath: TestResult.lvclass_CleanUp.vi.png
+image::{imgpath}[TestResult.lvclass:CleanUp.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:startTest.vi
+
+:imgpath: TestResult.lvclass_startTest.vi.png
+image::{imgpath}[TestResult.lvclass:startTest.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:stopTest.vi
+
+:imgpath: TestResult.lvclass_stopTest.vi.png
+image::{imgpath}[TestResult.lvclass:stopTest.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:addError.vi
+
+:imgpath: TestResult.lvclass_addError.vi.png
+image::{imgpath}[TestResult.lvclass:addError.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:addFailure.vi
+
+:imgpath: TestResult.lvclass_addFailure.vi.png
+image::{imgpath}[TestResult.lvclass:addFailure.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:addSuccess.vi
+
+:imgpath: TestResult.lvclass_addSuccess.vi.png
+image::{imgpath}[TestResult.lvclass:addSuccess.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:wasSuccessful.vi
+
+:imgpath: TestResult.lvclass_wasSuccessful.vi.png
+image::{imgpath}[TestResult.lvclass:wasSuccessful.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:stop.vi
+
+:imgpath: TestResult.lvclass_stop.vi.png
+image::{imgpath}[TestResult.lvclass:stop.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:getShouldStop.vi
+
+:imgpath: TestResult.lvclass_getShouldStop.vi.png
+image::{imgpath}[TestResult.lvclass:getShouldStop.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:GetTestsRun.vi
+
+:imgpath: TestResult.lvclass_GetTestsRun.vi.png
+image::{imgpath}[TestResult.lvclass:GetTestsRun.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:GetErrors.vi
+
+:imgpath: TestResult.lvclass_GetErrors.vi.png
+image::{imgpath}[TestResult.lvclass:GetErrors.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:GetFailures.vi
+
+:imgpath: TestResult.lvclass_GetFailures.vi.png
+image::{imgpath}[TestResult.lvclass:GetFailures.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:addSkipped.vi
+
+:imgpath: TestResult.lvclass_addSkipped.vi.png
+image::{imgpath}[TestResult.lvclass:addSkipped.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestResult.lvclass:GetSkipped.vi
+
+:imgpath: TestResult.lvclass_GetSkipped.vi.png
+image::{imgpath}[TestResult.lvclass:GetSkipped.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== TestSuite.lvclass
+
+===== TestSuite.lvclass:TestSuite_Init.vi
+
+:imgpath: TestSuite.lvclass_TestSuite_Init.vi.png
+image::{imgpath}[TestSuite.lvclass:TestSuite_Init.vi]
+
+*Description:*
+++++
+Initialize a TestSuite object with 'tests'. Tests are TestCase and/or TestSuite objects that have been initialized.
+
+This method should be called inside of any instance of TestSuite.New method after the TestSuite test objects are created.
+++++
+
+===== TestSuite.lvclass:CleanUp.vi
+
+:imgpath: TestSuite.lvclass_CleanUp.vi.png
+image::{imgpath}[TestSuite.lvclass:CleanUp.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestSuite.lvclass:countTestCases.vi
+
+:imgpath: TestSuite.lvclass_countTestCases.vi.png
+image::{imgpath}[TestSuite.lvclass:countTestCases.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestSuite.lvclass:addTest.vi
+
+:imgpath: TestSuite.lvclass_addTest.vi.png
+image::{imgpath}[TestSuite.lvclass:addTest.vi]
+
+*Description:*
+++++
+Adds a 'test' to a TestSuite object.  'test' can be a TestCase or TestSuite object.
+++++
+
+===== TestSuite.lvclass:addTests.vi
+
+:imgpath: TestSuite.lvclass_addTests.vi.png
+image::{imgpath}[TestSuite.lvclass:addTests.vi]
+
+*Description:*
+++++
+Adds 'tests' to testSuite.  'tests' can be testCase or testSuite objects (can be mixed).
+++++
+
+===== TestSuite.lvclass:run.vi
+
+:imgpath: TestSuite.lvclass_run.vi.png
+image::{imgpath}[TestSuite.lvclass:run.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestSuite.lvclass:GetTests.vi
+
+:imgpath: TestSuite.lvclass_GetTests.vi.png
+image::{imgpath}[TestSuite.lvclass:GetTests.vi]
+
+*Description:*
+++++
+Gets the test members of testSuite.  'tests' can be testCase or testSuite objects (can be mixed).
+++++
+
+===== TestSuite.lvclass:CallVirtualConstructorMethod.vi
+
+:imgpath: TestSuite.lvclass_CallVirtualConstructorMethod.vi.png
+image::{imgpath}[TestSuite.lvclass:CallVirtualConstructorMethod.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestSuite.lvclass:GetDescription.vi
+
+:imgpath: TestSuite.lvclass_GetDescription.vi.png
+image::{imgpath}[TestSuite.lvclass:GetDescription.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestSuite.lvclass:id.vi
+
+:imgpath: TestSuite.lvclass_id.vi.png
+image::{imgpath}[TestSuite.lvclass:id.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestSuite.lvclass:skip.vi
+
+:imgpath: TestSuite.lvclass_skip.vi.png
+image::{imgpath}[TestSuite.lvclass:skip.vi]
+
+*Description:*
+++++
+Causes TestSuite to be skipped (and not actually run).
+++++
+
+===== TestSuite.lvclass:getSkipMessage.vi
+
+:imgpath: TestSuite.lvclass_getSkipMessage.vi.png
+image::{imgpath}[TestSuite.lvclass:getSkipMessage.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== TestSuite.lvclass:SetTests.vi
+
+:imgpath: TestSuite.lvclass_SetTests.vi.png
+image::{imgpath}[TestSuite.lvclass:SetTests.vi]
+
+*Description:*
+++++
+Sets the test members of testSuite.  'tests' can be testCase or testSuite objects (can be mixed).  Note that this method should only be called after the 'Test Cases' have been created.  Expected usage for this method is in TestSuite.setUp where a developer may need to call TestSuite.GetTests to get test objects and potentially modify test data and then call TestSuite.SetTests to replace the test objects.  Be careful when using this method to ensure that existing Test object data used by framework is not lost or unexpected results are possible.
+++++
+
+==== Protected Actor Handle.lvclass
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Create.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Create.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Create.vi]
+
+*Description:*
+++++
+Given the information about an actor, provided by the debug layer of the Actor Framework, this VI creates an actor handle that an attached debugger can use for limited manipulation of the running actor.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Emergency Stop.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Emergency Stop.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Emergency Stop.vi]
+
+*Description:*
+++++
+Sends the Stop Msg to the actor with emergency priority.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Open Block Diagram.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Open Block Diagram.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Open Block Diagram.vi]
+
+*Description:*
+++++
+Opens the block diagram of the running actor's Actor Core clone VI.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Open Front Panel.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Open Front Panel.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Open Front Panel.vi]
+
+*Description:*
+++++
+Opens the front panel of the running actor's Actor Core clone VI.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Ping.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Ping.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Ping.vi]
+
+*Description:*
+++++
+Sends the Ping Msg to the actor and waits for a reply to know how long the ping took to arrive. Use this VI in a debugger to test whether the actor is still alive.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Read Details.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Read Details.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Read Details.vi]
+
+*Description:*
+++++
+Reads identification information about the actor, useful for display in a debugger.
+++++
+
+===== AF Debug.lvlib:Protected Actor Handle.lvclass:Stop.vi
+
+:imgpath: AF Debug.lvlib_Protected Actor Handle.lvclass_Stop.vi.png
+image::{imgpath}[AF Debug.lvlib:Protected Actor Handle.lvclass:Stop.vi]
+
+*Description:*
+++++
+Sends the Stop Msg to the actor with normal priority.
+++++
+
+==== Ping Msg.lvclass
+
+===== AF Debug.lvlib:Ping Msg.lvclass:Send Ping.vi
+
+:imgpath: AF Debug.lvlib_Ping Msg.lvclass_Send Ping.vi.png
+image::{imgpath}[AF Debug.lvlib:Ping Msg.lvclass:Send Ping.vi]
+
+*Description:*
+++++
+This VI sends a synchronous message to any actor. This VI outputs the time delay between sending the message and the actor receiving the message (computed using the high-resolution timer). Delay will be zero if there is an error. Errors occur only if the actor has already quit before the ping is sent or if LabVIEW runs out of memory.
+++++
+
+===== AF Debug.lvlib:Ping Msg.lvclass:Do.vi
+
+:imgpath: AF Debug.lvlib_Ping Msg.lvclass_Do.vi.png
+image::{imgpath}[AF Debug.lvlib:Ping Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the Ping Msg to any actor. This VI does not invoke any methods on the actor. It simply returns to the sender the time delay (using the high-resolution timer) between the send and the receive of the message.
+++++
+
+==== Register Actor Msg.lvclass
+
+
+== Legal Information
+
+=== Document creation
+
+This document has been generated using the following tools.
+
+==== Antidoc
+
+Project website: https://wovalab.gitlab.io/open-source/labview-doc-generator/[Antidoc] 
+
+Maintainer website: https://wovalab.com[Wovalab] 
+
+BSD 3-Clause License
+
+Copyright (C) 2019, Wovalab,
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+==== Asciidoc for LabVIEW(TM)
+
+Project website: https://wovalab.gitlab.io/open-source/asciidoc-toolkit/[Asciidoc toolkit] 
+
+Maintainer website: https://wovalab.com[Wovalab] 
+
+BSD 3-Clause License
+
+Copyright (C) 2019, Wovalab,
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+==== Graph Builder
+
+Project website: https://gitlab.com/cgambini/graph-builder[Graph Builder]
+
+BSD 3-Clause License
+
+Copyright (c) 2020, Cyril GAMBINI
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+=== Product used in the project
+
+Antidoc hasn't been able to detect third party products in the project.
+This is the author's responsibility to list any of the missing product used.
