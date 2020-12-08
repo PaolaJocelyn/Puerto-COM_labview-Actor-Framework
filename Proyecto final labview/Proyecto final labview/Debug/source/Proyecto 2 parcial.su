@@ -1,0 +1,21 @@
+core_cm4.h:1679:22:__NVIC_EnableIRQ	16	static
+fsl_clock.h:699:20:CLOCK_EnableClock	24	static
+fsl_common.h:460:28:EnableIRQ	16	static
+fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+fsl_gpio.h:223:24:GPIO_PortRead	16	static
+fsl_gpio.h:239:20:GPIO_PortMaskedSet	24	static
+fsl_gpio.h:251:20:GPIO_PortMaskedWrite	24	static
+fsl_usart.h:302:24:USART_GetStatusFlags	16	static
+fsl_usart.h:348:20:USART_EnableInterrupts	16	static
+fsl_adc.h:423:20:ADC_EnableTemperatureSensor	16	static
+fsl_adc.h:453:20:ADC_EnableConvSeqA	16	static
+fsl_adc.h:478:20:ADC_DoSoftwareTriggerConvSeqA	16	static
+fsl_power.h:108:20:POWER_DisablePD	16	static
+Proyecto 2 parcial.c:72:5:main	56	static
+Proyecto 2 parcial.c:148:6:FLEXCOMM0_IRQHandler	8	static
+Proyecto 2 parcial.c:159:6:LED_config	16	static
+Proyecto 2 parcial.c:178:6:ADC_PWR_Config	8	static
+Proyecto 2 parcial.c:189:6:ADC_Calib	8	static
+Proyecto 2 parcial.c:202:6:ADC_Request	16	static
+Proyecto 2 parcial.c:211:7:ADCtoVoltageConversion	24	static
+Proyecto 2 parcial.c:217:6:Writeport	16	static
