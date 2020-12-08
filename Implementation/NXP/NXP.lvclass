@@ -37,11 +37,11 @@
 		<Item Name="Visa_Write read_UI SETPIN.vi" Type="VI" URL="../Visa_Write read_UI SETPIN.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(R!!!!%!!?1(!!(A!!$1N/7&amp;!O&lt;(:D&lt;'&amp;T=Q!'4FB1)'FO!!!?!$@`````!!1A!)!!!!!!!1!%!!!!!1!!!!!!!!!U1(!!$A6*&lt;H.U=A!"!!%A!)!!!!!!!1!%!!!!!1!!!!!!!!Z736.")&amp;*F:GZV&lt;3"J&lt;A!!"!!!!"B!-0````]01W^N&lt;7&amp;O:#"U&lt;S"4:7ZE!!R!)1:T&gt;'&amp;U&gt;8-!!!N!!Q!%9W^E:1!!%%!Q`````Q:T&lt;X6S9W5!!#"!5!!$!!5!"A!(%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!(E"Q!"Y!!!U,4FB1,GRW9WRB=X-!"UZ95#"P&gt;81!.%"Q!!Y&amp;37ZT&gt;()!!1!")!#!!!!!!!%!"!!!!!%!!!!!!!!06EF413"3:7:O&gt;7UA&lt;X6U!""!-0````]'5(6F=H2P!!!31$$`````#6:B&lt;'^S)&amp;"J&lt;A!)1#%$5'FO!":!5!!$!!5!"A!(#76S=G^S)'^V&gt;!#%!0!!&amp;!!!!!)!!Q!%!!-!#!!$!!-!!Q!$!!-!!Q!$!!-!#1!+!!M!$!!.!!Y$!!%1!!#1!!!!#!!!!!!!!!!)!!!!!!!!!!I!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)U!!!!.!1!!#1!!!!E!!!!*!!!!$15!!!!"!!]!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-			<Property Name="NI.ClassItem.Flags" Type="Int">33554432</Property>
+			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
 			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-			<Property Name="NI.ClassItem.State" Type="Int">1342710288</Property>
+			<Property Name="NI.ClassItem.State" Type="Int">1107821072</Property>
 		</Item>
 	</Item>
 	<Item Name="Desplegar arreglos boleanos.vi" Type="VI" URL="../Desplegar arreglos boleanos.vi">
